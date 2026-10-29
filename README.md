@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/greenquery_logo.webp" alt="GreenQuery" width="640">
+  <img src="images/greenquery_logo.webp" alt="GreenQuery" width="640">
 </p>
 
 <p align="center"><b>Measure the quality, energy, runtime and cost of LLM-powered semantic query engines.</b></p>
@@ -74,7 +74,7 @@ Key findings (energy spread for the same answer, optimizers beaten, correct answ
 quality-vs-energy plot of every engine and query for one model. Below it: archive coverage, measurement
 provenance (measured vs. estimated) and per-dataset summaries.
 
-![Overview](docs/images/screen_overview.png)
+![Overview](images/screen_overview.png)
 
 ### Challenge: play the query optimizer
 Pick a query, an engine and a model, and try to answer correctly with the least energy. Your run races the
@@ -86,7 +86,7 @@ shared leaderboard.
 - **Play on your phone**: the QR code opens the Challenge on phones in the same network (or on the public
   deployment, see `NEXT_PUBLIC_PLAY_URL`).
 
-![Challenge, run in progress](docs/images/screen_challenge.png)
+![Challenge, run in progress](images/screen_challenge.png)
 
 ### Cross-System: same query, same model, same GPU
 An energy heatmap of engines × queries for one model. Each cell shows energy and quality (correct, partly
@@ -94,45 +94,45 @@ correct, wrong, timeout), and the cheapest correct answer per query is outlined.
 scatter, run details (GPU energy above idle, CPU share, tokens, raw run id) and a per-query summary ("energy
 differs 59× between systems", energy spent on wrong answers).
 
-![Cross-System](docs/images/screen_cross_system.png)
+![Cross-System](images/screen_cross_system.png)
 
 ### Run Benchmark: start runs from the browser
 Choose system, workload, query, model, repetitions, cache mode and, for Stretto/Abacus, single- or multi-model
 operators. You get a cost estimate before starting (runs above the cost limit are refused), then live job cards
 with energy, LLM calls, runtime and a power sparkline. **Inspect** opens the full trace of a run.
 
-![Run Benchmark](docs/images/screen_run_benchmark.png)
+![Run Benchmark](images/screen_run_benchmark.png)
 
 ### Query Lab: where the energy of one run goes
 A single recorded run, broken down into planner (LLM), execution (per operator) and everything outside both
 (startup, data loading, idle). It also shows the recorded physical plan as a graph, plus runtime, energy, CO₂,
 tokens, requests and quality.
 
-![Query Lab](docs/images/screen_query_lab.png)
+![Query Lab](images/screen_query_lab.png)
 
 ### Model Compare: one query, several models
 Query-level medians per model (quality, runtime, energy, CO₂), with chart views for quality, latency vs.
 energy, accuracy vs. energy, CO₂ and the Pareto frontier.
 
-![Model Compare](docs/images/screen_model_compare.png)
+![Model Compare](images/screen_model_compare.png)
 
 ### Compare Queries: workloads side by side
 Several queries under one model: question and complexity, the planner vs. execution energy share, the
 run-to-run spread (median, IQR, min/max) and a summary table.
 
-![Compare Queries](docs/images/screen_compare_queries.png)
+![Compare Queries](images/screen_compare_queries.png)
 
 ### Dataset Compare: benchmark coverage
 Dataset-level medians (Animals, Artwork, Medical, Movie, RotoWire), their quality metrics and phase coverage,
 plus a data audit of what the archive can and cannot support.
 
-![Dataset Compare](docs/images/screen_dataset_compare.png)
+![Dataset Compare](images/screen_dataset_compare.png)
 
 ### Measurement Records: the raw evidence
 Every individual recorded run behind the aggregates (query, model, run, evaluation, energy, phase coverage), not
 medians.
 
-![Measurement Records](docs/images/screen_measurement_records.png)
+![Measurement Records](images/screen_measurement_records.png)
 
 ---
 
