@@ -1,0 +1,184 @@
+# GreenQuery model registry.
+#
+# Every model that can be selected for a benchmark run is listed here. The same
+# model is used for Stretto planning and semantic execution (matched runs).
+#
+# Fields
+#   provider        openai | anthropic | openai_compatible
+#   api_model       model id sent to the provider (defaults to the key)
+#   display_name    label shown in the dashboard
+#   api_key_env     environment variable holding the credential (never commit keys)
+#   base_url        only for openai_compatible (vLLM, Ollama, LM Studio, ...)
+#   base_url_env    optional env var that overrides base_url
+#   price_in/out    USD per million input/output tokens (used for cost + estimates)
+#   energy          ecologits        -> EcoLogits estimate for the exact model
+#                   ecologits_proxy  -> EcoLogits estimate using `ecologits_model`
+#                                       (source stays estimated_by_ecologits; the proxy
+#                                       model is recorded as `ecologits_model` per call)
+#                   not_available    -> no energy figure (e.g. local server without a meter)
+#   ecologits_model model name EcoLogits knows, used when energy = ecologits_proxy
+#   effort          optional Claude effort level (low|medium|high|xhigh|max); unset = API default
+#   max_tokens      max output tokens per call (Anthropic requires this)
+#   gpus            GPUs a local model needs on the DGX (A100 40 GB); default 1
+#   rpm / tpm       client-side rate-limit hints
+
+models:
+  # ---------------------------------------------------------------- OpenAI
+  gpt-4o-mini:
+    provider: openai
+    display_name: GPT-4o mini
+    api_key_env: OPENAI_API_KEY
+    price_in: 0.15
+    price_out: 0.60
+    energy: ecologits
+  gpt-4.1:
+    provider: openai
+    display_name: GPT-4.1
+    api_key_env: OPENAI_API_KEY
+    price_in: 2.00
+    price_out: 8.00
+    energy: ecologits
+  gpt-5-mini:
+    provider: openai
+    display_name: GPT-5 mini
+    api_key_env: OPENAI_API_KEY
+    price_in: 0.25
+    price_out: 2.00
+    energy: ecologits
+
+  # ------------------------------------------------------------- Anthropic
+  # EcoLogits 0.11.1 does not register the Claude 5.x family yet, so these use
+  # the closest registered Claude model as an explicit, labelled proxy.
+  claude-haiku-5-5:
+    provider: anthropic
+    display_name: Claude Haiku 5.5
+    api_key_env: ANTHROPIC_API_KEY
+    price_in: 0.10
+    price_out: 0.50
+    energy: ecologits_proxy
+    ecologits_model: claude-haiku-4-5
+    max_tokens: 8000
+  claude-sonnet-5-5:
+    provider: anthropic
+    display_name: Claude Sonnet 5.5
+    api_key_env: ANTHROPIC_API_KEY
+    price_in: 2.00
+    price_out: 10.00
+    energy: ecologits_proxy
+    ecologits_model: claude-sonnet-4-5
+    max_tokens: 8000
+  claude-opus-5-5:
+    provider: anthropic
+    display_name: Claude Opus 5.5
+    api_key_env: ANTHROPIC_API_KEY
+    price_in: 4.00
+    price_out: 20.00
+    energy: ecologits_proxy
+    ecologits_model: claude-opus-4-5
+    max_tokens: 8000
+
+  # ---------------------------------------- Local (OpenAI-compatible server)
+  # Start e.g. `ollama serve` or `vllm serve <model>` and adjust base_url.
+  # Ollama serves 4-bit (Q4_K_M) weights by default: not comparable with
+  # full-precision DGX runs of the same model.
+  ollama/qwen2.5:3b-instruct:
+    provider: openai_compatible
+    api_model: qwen2.5:3b-instruct
+    display_name: Qwen2.5-3B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/qwen2.5:14b-instruct:
+    provider: openai_compatible
+    api_model: qwen2.5:14b-instruct
+    display_name: Qwen2.5-14B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  # Qwen2.5-32B (4-bit, ~20 GB) fits one 40 GB A100. 70B models are not used.
+  ollama/qwen2.5:32b-instruct:
+    provider: openai_compatible
+    api_model: qwen2.5:32b-instruct
+    display_name: Qwen2.5-32B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  # Gemma 3: second family with a full small-to-large ladder (4-bit).
+  ollama/gemma3:4b:
+    provider: openai_compatible
+    api_model: gemma3:4b
+    display_name: Gemma-3-4B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/gemma3:12b:
+    provider: openai_compatible
+    api_model: gemma3:12b
+    display_name: Gemma-3-12B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/gemma3:27b:
+    provider: openai_compatible
+    api_model: gemma3:27b
+    display_name: Gemma-3-27B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/llama3.2:1b:
+    provider: openai_compatible
+    api_model: llama3.2:1b
+    display_name: Llama-3.2-1B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/llama3.2:3b:
+    provider: openai_compatible
+    api_model: llama3.2:3b
+    display_name: Llama-3.2-3B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/qwen2.5:7b-instruct:
+    provider: openai_compatible
+    api_model: qwen2.5:7b-instruct
+    display_name: Qwen2.5-7B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  ollama/llama3.1:8b:
+    provider: openai_compatible
+    api_model: llama3.1:8b
+    display_name: Llama-3.1-8B (Ollama)
+    base_url: http://localhost:11434/v1
+    base_url_env: GREENQUERY_OLLAMA_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available
+  vllm/Qwen/Qwen2.5-7B-Instruct:
+    provider: openai_compatible
+    api_model: Qwen/Qwen2.5-7B-Instruct
+    display_name: Qwen2.5-7B (vLLM)
+    base_url: http://localhost:8001/v1
+    base_url_env: GREENQUERY_VLLM_BASE_URL
+    price_in: 0.0
+    price_out: 0.0
+    energy: not_available

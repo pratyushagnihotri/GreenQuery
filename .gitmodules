@@ -1,0 +1,11 @@
+[submodule "palimpzest"]
+	path = palimpzest
+	url = https://github.com/mitdbg/palimpzest.git
+
+[submodule "kvpress"]
+	path = kvpress
+	url = https://github.com/GabrieleSanmartino/kvpress
+
+[submodule "APE"]
+	path = APE
+	url = https://github.com/Infini-AI-Lab/APE.git

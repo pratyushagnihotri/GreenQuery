@@ -1,0 +1,19 @@
+{
+	"models":[
+		{
+			"modalities":["text", "image"], "priority": 10,
+			"kwargs": {
+			    "filter": {
+					"model": "gpt-4o-mini",
+					"temperature": 0,
+					"max_tokens": 1
+				},
+				"join": {
+				    "model": "gpt-4o-mini",
+					"temperature": 0,
+					"stop": ["."]
+                }
+			}
+		}
+	]
+}

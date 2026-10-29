@@ -1,0 +1,679 @@
+[
+ {
+  "run": "sembench-measured-49853",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 1152,
+   "qwen2.5:3b-instruct": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 9.608348935507367,
+  "cpu_wh": 4.707724099745107,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49853",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 140,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 2.5212673046302774,
+  "cpu_wh": 0.9262205961211536,
+  "status": "success",
+  "quality": 0.8000000000000002,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49853",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 139,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 2.0086535942500148,
+  "cpu_wh": 0.8782502244651629,
+  "status": "success",
+  "quality": 0.4285714328289032,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49853",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 1152,
+   "qwen2.5:3b-instruct": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 9.263032851137298,
+  "cpu_wh": 4.049567023069799,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49853",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 140,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 2.734459471907984,
+  "cpu_wh": 0.8876091390284077,
+  "status": "success",
+  "quality": 0.8000000000000002,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49853",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 139,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 1.9809708047809544,
+  "cpu_wh": 0.7903156318114276,
+  "status": "success",
+  "quality": 0.2857142984867096,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49881",
+  "planner": "qwen2.5:7b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:7b-instruct",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:7b-instruct": 1152,
+   "qwen2.5:3b-instruct": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 4.043653100063093,
+  "cpu_wh": 3.645137545264048,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49881",
+  "planner": "qwen2.5:7b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:7b-instruct",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:7b-instruct": 140,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 1.1767903716039534,
+  "cpu_wh": 0.9885117294124051,
+  "status": "success",
+  "quality": 0.888888888888889,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49881",
+  "planner": "qwen2.5:7b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:7b-instruct",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:7b-instruct": 139,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 0.9862362076968162,
+  "cpu_wh": 0.7853012430518514,
+  "status": "success",
+  "quality": 0.7142857313156128,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49881",
+  "planner": "qwen2.5:7b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:7b-instruct",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:7b-instruct": 1152,
+   "qwen2.5:3b-instruct": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 3.6238821410051445,
+  "cpu_wh": 3.0995637602898336,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49881",
+  "planner": "qwen2.5:7b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:7b-instruct",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:7b-instruct": 140,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 0.9822343266284507,
+  "cpu_wh": 0.784255308316996,
+  "status": "success",
+  "quality": 0.888888888888889,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49881",
+  "planner": "qwen2.5:7b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:7b-instruct",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:7b-instruct": 139,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 0.8668313302555019,
+  "cpu_wh": 0.6964108312249268,
+  "status": "success",
+  "quality": 0.7142857313156128,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49882",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "gemma3:27b": 1152,
+   "gemma3:4b": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 18.80104560790273,
+  "cpu_wh": 9.528454819779922,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49882",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "gemma3:27b": 140,
+   "gemma3:4b": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 3.104853383172821,
+  "cpu_wh": 1.6663599567572225,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49882",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "gemma3:27b": 139,
+   "gemma3:4b": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 2.7047174299896386,
+  "cpu_wh": 1.756007283385535,
+  "status": "success",
+  "quality": 0.4285714328289032,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49882",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "gemma3:27b": 152,
+   "gemma3:4b": 1156
+  },
+  "small_share": 0.8837920489296636,
+  "sequence": "L1 S6 L1 S150 L150 S1000",
+  "gpu_wh": 8.49987693759561,
+  "cpu_wh": 8.151535921003488,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49882",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "gemma3:27b": 20,
+   "gemma3:4b": 180
+  },
+  "small_share": 0.9,
+  "sequence": "L1 S42 L1 S18 L18 S120",
+  "gpu_wh": 1.8121308843843225,
+  "cpu_wh": 1.4290435194714877,
+  "status": "success",
+  "quality": 0.6,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49882",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "gemma3:27b": 19,
+   "gemma3:4b": 180
+  },
+  "small_share": 0.9045226130653267,
+  "sequence": "L1 S60 L18 S120",
+  "gpu_wh": 1.5356537065541165,
+  "cpu_wh": 1.3895442106088889,
+  "status": "success",
+  "quality": 0.2142857164144516,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49883",
+  "planner": "llama3.1:8b",
+  "operators": "llama3.2:3b + llama3.1:8b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "llama3.1:8b": 1152,
+   "llama3.2:3b": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 5.335457879916454,
+  "cpu_wh": 4.853968859640843,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49883",
+  "planner": "llama3.1:8b",
+  "operators": "llama3.2:3b + llama3.1:8b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "llama3.1:8b": 1
+  },
+  "small_share": 0.0,
+  "sequence": "L1",
+  "gpu_wh": 0.5442232171161514,
+  "cpu_wh": 0.12206804637015112,
+  "status": "failed",
+  "quality": 0.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49883",
+  "planner": "llama3.1:8b",
+  "operators": "llama3.2:3b + llama3.1:8b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "llama3.1:8b": 139,
+   "llama3.2:3b": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 1.5088855917032602,
+  "cpu_wh": 1.159298548863075,
+  "status": "success",
+  "quality": 0.0714285671710968,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49883",
+  "planner": "llama3.1:8b",
+  "operators": "llama3.2:3b + llama3.1:8b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "llama3.1:8b": 1152,
+   "llama3.2:3b": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 5.060076260688301,
+  "cpu_wh": 3.6076634449095044,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49883",
+  "planner": "llama3.1:8b",
+  "operators": "llama3.2:3b + llama3.1:8b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "llama3.1:8b": 1
+  },
+  "small_share": 0.0,
+  "sequence": "L1",
+  "gpu_wh": 0.5495405735484221,
+  "cpu_wh": 0.09928260392620711,
+  "status": "failed",
+  "quality": 0.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49883",
+  "planner": "llama3.1:8b",
+  "operators": "llama3.2:3b + llama3.1:8b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "llama3.1:8b": 1
+  },
+  "small_share": 0.0,
+  "sequence": "L1",
+  "gpu_wh": 0.5712728450447321,
+  "cpu_wh": 0.0956199353037069,
+  "status": "failed",
+  "quality": 1.0,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49884",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.6",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 1152,
+   "qwen2.5:3b-instruct": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 9.561682103146385,
+  "cpu_wh": 4.022797306022544,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49884",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.6",
+  "system": "stretto",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 140,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 2.8322860083418586,
+  "cpu_wh": 1.026118762800799,
+  "status": "success",
+  "quality": 0.8000000000000002,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49884",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.6",
+  "system": "stretto",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 139,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 2.057240963046853,
+  "cpu_wh": 0.9183617653098973,
+  "status": "success",
+  "quality": 0.3571428656578064,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49884",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.6",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 152,
+   "qwen2.5:3b-instruct": 1156
+  },
+  "small_share": 0.8837920489296636,
+  "sequence": "L1 S6 L1 S150 L150 S1000",
+  "gpu_wh": 4.7901638244418425,
+  "cpu_wh": 3.2388405557997393,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49884",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.6",
+  "system": "stretto_abacus",
+  "query": "Q2",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 140,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3,
+  "sequence": "L1 S42 L1 S18 L138",
+  "gpu_wh": 2.51697068480723,
+  "cpu_wh": 0.6960933925964268,
+  "status": "success",
+  "quality": 0.8000000000000002,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49884",
+  "planner": "qwen2.5:32b-instruct",
+  "operators": "qwen2.5:3b-instruct + qwen2.5:32b-instruct",
+  "target": "0.6",
+  "system": "stretto_abacus",
+  "query": "Q4",
+  "repetition": 1,
+  "calls": {
+   "qwen2.5:32b-instruct": 139,
+   "qwen2.5:3b-instruct": 60
+  },
+  "small_share": 0.3015075376884422,
+  "sequence": "L1 S60 L138",
+  "gpu_wh": 1.961463272162299,
+  "cpu_wh": 0.7583676100408653,
+  "status": "success",
+  "quality": 0.3571428656578064,
+  "quality_metric": "relative_error"
+ },
+ {
+  "run": "sembench-measured-49917",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 2,
+  "calls": {
+   "gemma3:27b": 1152,
+   "gemma3:4b": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 20.183670917971888,
+  "cpu_wh": 6.641771970676969,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49917",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 2,
+  "calls": {
+   "gemma3:27b": 152,
+   "gemma3:4b": 1156
+  },
+  "small_share": 0.8837920489296636,
+  "sequence": "L1 S6 L1 S150 L150 S1000",
+  "gpu_wh": 9.177308345160757,
+  "cpu_wh": 6.25105614951197,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49917",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto",
+  "query": "Q1",
+  "repetition": 3,
+  "calls": {
+   "gemma3:27b": 1152,
+   "gemma3:4b": 156
+  },
+  "small_share": 0.11926605504587157,
+  "sequence": "L1 S6 L1 S150 L1150",
+  "gpu_wh": 19.89765089086878,
+  "cpu_wh": 6.831339299723391,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ },
+ {
+  "run": "sembench-measured-49917",
+  "planner": "gemma3:27b",
+  "operators": "gemma3:4b + gemma3:27b",
+  "target": "0.8",
+  "system": "stretto_abacus",
+  "query": "Q1",
+  "repetition": 3,
+  "calls": {
+   "gemma3:27b": 152,
+   "gemma3:4b": 1156
+  },
+  "small_share": 0.8837920489296636,
+  "sequence": "L1 S6 L1 S150 L150 S1000",
+  "gpu_wh": 9.094550822797334,
+  "cpu_wh": 5.96525686370639,
+  "status": "success",
+  "quality": 1.0,
+  "quality_metric": "f1"
+ }
+]

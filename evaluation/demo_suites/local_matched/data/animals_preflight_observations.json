@@ -1,0 +1,9 @@
+{
+  "preflight_job_id": 48648,
+  "source_commit": "061099789b201cfd13d233c11c7c649c49e893b3",
+  "query": "Q1_zebra_image_count",
+  "expected_count": 27,
+  "observed_count": 32,
+  "classification": "quality_mismatch_not_framework_failure",
+  "note": "Q1 completed successfully with positive NVML evidence; the result mismatch is model quality evidence and is separate from the Q2 audio schema-routing framework failure."
+}

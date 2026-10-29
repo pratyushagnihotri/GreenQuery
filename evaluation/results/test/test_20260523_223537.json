@@ -1,0 +1,61 @@
+{
+  "measurement_id": "test_20260523_223537",
+  "demo_name": "test",
+  "timestamp": "2026-05-23T22:35:37.241200",
+  "environment": {
+    "python_version": "3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-26.0.1-arm64-arm-64bit-Mach-O",
+    "duckdb_version": "1.5.3",
+    "openai_version": "2.38.0",
+    "ecologits_version": "0.10.1",
+    "device": "cpu"
+  },
+  "config": {
+    "demo_name": "test",
+    "device": "cpu",
+    "precision_guarantee": 0.8,
+    "recall_guarantee": 0.8,
+    "model_name": "gpt-4o-mini"
+  },
+  "queries": [
+    {
+      "query_name": "test_query",
+      "query_type": "test",
+      "execution_time_seconds": 0.1031339168548584,
+      "api_calls": {
+        "total_calls": 1,
+        "models_used": [
+          "gpt-4o-mini"
+        ],
+        "total_prompt_tokens": 100,
+        "total_completion_tokens": 50,
+        "total_tokens": 150
+      },
+      "energy": {
+        "total_kwh": 0.001,
+        "per_call_kwh": 0.001,
+        "total_gco2eq": 0.5,
+        "per_call_gco2eq": 0.5
+      },
+      "cost": {
+        "total_usd": 0.01,
+        "prompt_cost_usd": 0.007,
+        "completion_cost_usd": 0.003
+      },
+      "result_summary": {
+        "rows_returned": 2
+      },
+      "status": "success",
+      "error": null
+    }
+  ],
+  "totals": {
+    "total_queries": 1,
+    "total_api_calls": 1,
+    "total_tokens": 150,
+    "total_energy_kwh": 0.001,
+    "total_carbon_gco2eq": 0.5,
+    "total_cost_usd": 0.01
+  },
+  "total_execution_time_seconds": 0.1032419204711914
+}

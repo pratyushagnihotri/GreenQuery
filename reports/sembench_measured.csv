@@ -1,0 +1,442 @@
+system,model,query,repetition,status,valid,reason,quality_metric,quality,score,runtime_s,llm_calls,llm_errors,prompt_tokens,completion_tokens,gpu_wh,gpu_dynamic_wh,cpu_job_wh,gpu_idle_w,api_cost_usd,cost_source,run
+caesura,anthropic/claude-haiku-5.5,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,144.7,12,0,29518,7654,,,,,0.0068,list_price_no_cache,sembench-openai-49901
+lotus,anthropic/claude-haiku-5.5,Q1,1,success,True,,f1,1.0,1.0,101.9,1000,0,183013,188577,,,,,0.1126,list_price_no_cache,sembench-openai-49901
+palimpzest,anthropic/claude-haiku-5.5,Q1,1,success,True,,f1,1.0,1.0,16.0,25,0,13337,5169,,,,,0.0039,list_price_no_cache,sembench-openai-49901
+stretto,anthropic/claude-haiku-5.5,Q1,1,success,True,,f1,1.0,1.0,85.9,1158,0,146477,36554,,,,,0.0329,list_price_no_cache,sembench-openai-49901
+stretto_abacus,anthropic/claude-haiku-5.5,Q1,1,success,True,,f1,1.0,1.0,79.2,1158,0,145321,30111,,,,,0.0296,list_price_no_cache,sembench-openai-49901
+thalamusdb,anthropic/claude-haiku-5.5,Q1,1,success,True,,f1,1.0,1.0,10.4,20,0,1889,20,,,,,0.0002,list_price_no_cache,sembench-openai-49901
+caesura,anthropic/claude-haiku-5.5,Q2,1,success,True,,f1,0.0,0.0,165.7,18,0,54076,12662,,,,,0.0117,list_price_no_cache,sembench-openai-49901
+lotus,anthropic/claude-haiku-5.5,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,25.8,120,0,20783,15545,,,,,0.0099,list_price_no_cache,sembench-openai-49901
+palimpzest,anthropic/claude-haiku-5.5,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,68.0,120,0,63780,22824,,,,,0.0178,list_price_no_cache,sembench-openai-49901
+stretto,anthropic/claude-haiku-5.5,Q2,1,success,True,,f1,1.0,1.0,37.7,182,0,22503,2683,,,,,0.0036,list_price_no_cache,sembench-openai-49901
+stretto_abacus,anthropic/claude-haiku-5.5,Q2,1,success,True,,f1,1.0,1.0,30.5,182,0,22503,3360,,,,,0.0039,list_price_no_cache,sembench-openai-49901
+thalamusdb,anthropic/claude-haiku-5.5,Q2,1,success,True,,f1,0.7499999999999999,0.7499999999999999,13.6,119,0,11108,119,,,,,0.0012,list_price_no_cache,sembench-openai-49901
+caesura,anthropic/claude-haiku-5.5,Q4,1,success,True,,relative_error,7.571428298950195,0.0,115.9,9,0,27345,5820,,,,,0.0056,list_price_no_cache,sembench-openai-49901
+lotus,anthropic/claude-haiku-5.5,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,25.2,120,0,20423,17164,,,,,0.0106,list_price_no_cache,sembench-openai-49901
+palimpzest,anthropic/claude-haiku-5.5,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,27.2,120,0,108900,35576,,,,,0.0287,list_price_no_cache,sembench-openai-49901
+stretto,anthropic/claude-haiku-5.5,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,34.3,181,0,21808,2664,,,,,0.0035,list_price_no_cache,sembench-openai-49901
+stretto_abacus,anthropic/claude-haiku-5.5,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,28.8,181,0,21808,2729,,,,,0.0035,list_price_no_cache,sembench-openai-49901
+thalamusdb,anthropic/claude-haiku-5.5,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,12.7,119,0,11108,119,,,,,0.0012,list_price_no_cache,sembench-openai-49901
+caesura,anthropic/claude-haiku-5.5,Q5,1,success,True,,,,,59.7,7,0,18910,5628,,,,,0.0047,list_price_no_cache,sembench-openai-49901
+lotus,anthropic/claude-haiku-5.5,Q5,1,success,True,,f1,0.33333333333333337,0.33333333333333337,2914.3,27376,0,8325330,8065359,,,,,4.8652,provider_billed,sembench-openai-49912
+palimpzest,anthropic/claude-haiku-5.5,Q5,1,success,True,,f1,0.5,0.5,24.6,100,0,78680,32225,,,,,0.024,list_price_no_cache,sembench-openai-49901
+stretto,anthropic/claude-haiku-5.5,Q5,1,success,True,,f1,0.0,0.0,511.5,1773,0,246948,48988,,,,,0.0492,list_price_no_cache,sembench-openai-49901
+stretto_abacus,anthropic/claude-haiku-5.5,Q5,1,success,True,,f1,0.0,0.0,361.5,1661,0,236313,37270,,,,,0.0423,list_price_no_cache,sembench-openai-49901
+thalamusdb,anthropic/claude-haiku-5.5,Q5,1,success,True,,f1,0.6,0.6,14.1,1,0,1283,2168,,,,,0.0012,list_price_no_cache,sembench-openai-49901
+caesura,anthropic/claude-opus-5.5,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,290.4,9,0,25088,4443,,,,,0.1892,provider_billed,sembench-openai-49906
+lotus,anthropic/claude-opus-5.5,Q1,1,success,True,,f1,1.0,1.0,222.0,1000,0,183013,168206,,,,,4.0928,provider_billed,sembench-openai-49906
+palimpzest,anthropic/claude-opus-5.5,Q1,1,success,True,,f1,1.0,1.0,24.9,35,0,18635,5146,,,,,0.1775,provider_billed,sembench-openai-49906
+stretto,anthropic/claude-opus-5.5,Q1,1,success,True,,f1,1.0,1.0,247.2,1158,0,180001,75425,,,,,2.2285,provider_billed,sembench-openai-49906
+stretto_abacus,anthropic/claude-opus-5.5,Q1,1,success,True,,f1,1.0,1.0,213.7,1158,0,136073,47193,,,,,1.4882,provider_billed,sembench-openai-49906
+thalamusdb,anthropic/claude-opus-5.5,Q1,1,success,True,,f1,0.0,0.0,184.4,869,0,87629,869,,,,,0.3679,provider_billed,sembench-openai-49906
+caesura,anthropic/claude-opus-5.5,Q2,1,success,True,,f1,0.0,0.0,514.8,27,0,75105,15887,,,,,0.6182,provider_billed,sembench-openai-49906
+lotus,anthropic/claude-opus-5.5,Q2,1,success,True,,f1,1.0,1.0,42.2,120,0,20783,16077,,,,,0.4047,provider_billed,sembench-openai-49906
+palimpzest,anthropic/claude-opus-5.5,Q2,1,success,True,,f1,1.0,1.0,78.0,120,0,63780,15297,,,,,0.5611,provider_billed,sembench-openai-49906
+stretto,anthropic/claude-opus-5.5,Q2,1,success,True,,f1,0.6,0.6,73.6,182,0,22503,7854,,,,,0.2471,provider_billed,sembench-openai-49906
+stretto_abacus,anthropic/claude-opus-5.5,Q2,1,success,True,,f1,1.0,1.0,70.8,182,0,22503,7578,,,,,0.2416,provider_billed,sembench-openai-49906
+thalamusdb,anthropic/claude-opus-5.5,Q2,1,success,True,,f1,0.0,0.0,27.4,119,0,11108,119,,,,,0.0468,provider_billed,sembench-openai-49906
+caesura,anthropic/claude-opus-5.5,Q4,1,success,True,,relative_error,1.0,0.0,117.2,7,0,18946,3298,,,,,0.1417,provider_billed,sembench-openai-49906
+lotus,anthropic/claude-opus-5.5,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,41.9,120,0,20423,16179,,,,,0.4053,provider_billed,sembench-openai-49906
+palimpzest,anthropic/claude-opus-5.5,Q4,1,success,True,,relative_error,0.2857142984867096,0.7142857015132904,38.0,120,0,108900,14981,,,,,0.7352,provider_billed,sembench-openai-49906
+stretto,anthropic/claude-opus-5.5,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,80.4,229,0,29006,8993,,,,,0.2959,provider_billed,sembench-openai-49906
+stretto_abacus,anthropic/claude-opus-5.5,Q4,1,success,True,,relative_error,0.6428571939468384,0.3571428060531616,78.2,229,0,28094,9481,,,,,0.302,provider_billed,sembench-openai-49906
+thalamusdb,anthropic/claude-opus-5.5,Q4,1,success,True,,relative_error,1.0,0.0,32.0,119,0,11108,119,,,,,0.0468,provider_billed,sembench-openai-49906
+caesura,anthropic/claude-opus-5.5,Q5,1,success,True,,f1,0.0,0.0,630.3,28,0,75603,19529,,,,,0.693,provider_billed,sembench-openai-49906
+palimpzest,anthropic/claude-opus-5.5,Q5,1,success,True,,f1,0.3,0.3,34.1,100,0,78680,20440,,,,,0.7235,provider_billed,sembench-openai-49906
+stretto,anthropic/claude-opus-5.5,Q5,1,success,True,,f1,0.0,0.0,1264.8,1721,0,274224,83606,,,,,2.769,provider_billed,sembench-openai-49906
+stretto_abacus,anthropic/claude-opus-5.5,Q5,1,success,True,,f1,0.0,0.0,1048.9,1675,0,249145,80638,,,,,2.6093,provider_billed,sembench-openai-49906
+thalamusdb,anthropic/claude-opus-5.5,Q5,1,success,True,,f1,0.6666666666666665,0.6666666666666665,11.6,1,0,1283,455,,,,,0.0142,provider_billed,sembench-openai-49906
+caesura,anthropic/claude-sonnet-5.5,Q1,1,success,True,,f1,0.0,0.0,197.0,17,0,43674,9991,,,,,0.1873,provider_billed,sembench-openai-49905
+lotus,anthropic/claude-sonnet-5.5,Q1,1,success,True,,f1,1.0,1.0,92.6,1000,0,183013,117014,,,,,1.5362,provider_billed,sembench-openai-49905
+palimpzest,anthropic/claude-sonnet-5.5,Q1,1,success,True,,f1,1.0,1.0,15.7,30,0,16027,3008,,,,,0.0621,provider_billed,sembench-openai-49905
+stretto,anthropic/claude-sonnet-5.5,Q1,1,success,True,,f1,1.0,1.0,102.6,1158,0,139541,21974,,,,,0.4988,provider_billed,sembench-openai-49905
+stretto_abacus,anthropic/claude-sonnet-5.5,Q1,1,success,True,,f1,1.0,1.0,92.5,1158,0,139541,23234,,,,,0.5114,provider_billed,sembench-openai-49905
+thalamusdb,anthropic/claude-sonnet-5.5,Q1,1,success,True,,f1,1.0,1.0,5.1,20,0,1889,20,,,,,0.004,provider_billed,sembench-openai-49905
+caesura,anthropic/claude-sonnet-5.5,Q2,1,success,True,,f1,0.0,0.0,203.7,16,0,46332,9336,,,,,0.186,provider_billed,sembench-openai-49905
+lotus,anthropic/claude-sonnet-5.5,Q2,1,success,True,,f1,1.0,1.0,24.4,120,0,20783,11058,,,,,0.1521,provider_billed,sembench-openai-49905
+palimpzest,anthropic/claude-sonnet-5.5,Q2,1,success,True,,f1,1.0,1.0,67.2,120,0,63780,11053,,,,,0.2381,provider_billed,sembench-openai-49905
+stretto,anthropic/claude-sonnet-5.5,Q2,1,success,True,,f1,1.0,1.0,43.0,230,0,26965,2903,,,,,0.083,provider_billed,sembench-openai-49905
+stretto_abacus,anthropic/claude-sonnet-5.5,Q2,1,success,True,,f1,0.888888888888889,0.888888888888889,39.6,230,0,26965,3097,,,,,0.0849,provider_billed,sembench-openai-49905
+thalamusdb,anthropic/claude-sonnet-5.5,Q2,1,success,True,,f1,0.888888888888889,0.888888888888889,10.2,119,0,11108,119,,,,,0.0234,provider_billed,sembench-openai-49905
+caesura,anthropic/claude-sonnet-5.5,Q4,1,success,True,,relative_error,1.0,0.0,116.9,8,0,23112,4315,,,,,0.0894,provider_billed,sembench-openai-49905
+lotus,anthropic/claude-sonnet-5.5,Q4,1,success,True,,relative_error,0.6428571939468384,0.3571428060531616,24.1,120,0,20423,11021,,,,,0.1511,provider_billed,sembench-openai-49905
+palimpzest,anthropic/claude-sonnet-5.5,Q4,1,success,True,,relative_error,0.2857142984867096,0.7142857015132904,26.6,120,0,108900,12636,,,,,0.3442,provider_billed,sembench-openai-49905
+stretto,anthropic/claude-sonnet-5.5,Q4,1,success,True,,relative_error,0.6428571939468384,0.3571428060531616,40.5,229,0,28094,2666,,,,,0.0828,provider_billed,sembench-openai-49905
+stretto_abacus,anthropic/claude-sonnet-5.5,Q4,1,success,True,,relative_error,0.6428571939468384,0.3571428060531616,34.5,229,0,28094,2780,,,,,0.084,provider_billed,sembench-openai-49905
+thalamusdb,anthropic/claude-sonnet-5.5,Q4,1,success,True,,relative_error,0.785714328289032,0.21428567171096802,9.4,119,0,11108,119,,,,,0.0234,provider_billed,sembench-openai-49905
+caesura,anthropic/claude-sonnet-5.5,Q5,1,success,True,,f1,0.6,0.6,146.2,13,0,37180,9086,,,,,0.1652,provider_billed,sembench-openai-49905
+lotus,anthropic/claude-sonnet-5.5,Q5,1,success,True,,f1,0.33333333333333337,0.33333333333333337,2950.1,27573,0,8379225,4972260,,,,,66.4537,provider_billed,sembench-openai-49913
+palimpzest,anthropic/claude-sonnet-5.5,Q5,1,success,True,,f1,0.2105263157894737,0.2105263157894737,23.9,100,0,78680,15345,,,,,0.3108,provider_billed,sembench-openai-49905
+stretto,anthropic/claude-sonnet-5.5,Q5,1,success,True,,f1,0.0,0.0,758.5,1783,0,264409,79114,,,,,1.32,provider_billed,sembench-openai-49905
+stretto_abacus,anthropic/claude-sonnet-5.5,Q5,1,success,True,,f1,0.0,0.0,1093.9,2306,0,377417,44094,,,,,1.1958,provider_billed,sembench-openai-49905
+thalamusdb,anthropic/claude-sonnet-5.5,Q5,1,success,True,,f1,0.7368421052631577,0.7368421052631577,10.5,1,0,1283,624,,,,,0.0088,provider_billed,sembench-openai-49905
+caesura,gemma3:12b,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,141.1,7,0,12732,2700,4.5586,2.2145,4.1524,59.8,0.0,none,sembench-measured-49821
+lotus,gemma3:12b,Q1,1,success,True,,f1,1.0,1.0,208.4,1000,0,137831,4000,8.6524,5.1896,8.152,59.8,0.0,none,sembench-measured-49821
+palimpzest,gemma3:12b,Q1,1,,False,timeout; no metrics,,,,3600.0,1000,0,355127,56467,88.7713,28.4088,52.4108,60.4,0.0,none,sembench-measured-49829
+stretto,gemma3:12b,Q1,1,success,True,,f1,1.0,1.0,263.7,1158,0,110588,3341,10.2824,5.8466,10.4575,60.6,0.0,none,sembench-measured-49825
+stretto_abacus,gemma3:12b,Q1,1,success,True,,f1,1.0,1.0,252.4,1158,0,110588,3341,10.0082,5.8097,10.3286,59.9,0.0,none,sembench-measured-49834
+thalamusdb,gemma3:12b,Q1,1,success,True,,f1,1.0,1.0,9.0,20,0,1349,20,0.1918,0.0421,0.2622,59.8,0.0,none,sembench-measured-49821
+caesura,gemma3:12b,Q2,1,success,True,,f1,0.0,0.0,229.9,20,0,33416,10683,12.3105,8.4902,2.5455,59.8,0.0,none,sembench-measured-49821
+lotus,gemma3:12b,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,38.9,120,0,15764,480,1.1569,0.51,1.2677,59.8,0.0,none,sembench-measured-49821
+palimpzest,gemma3:12b,Q2,1,success,True,,f1,0.6,0.6,41.4,47,0,16322,2485,1.9177,1.2243,0.7677,60.4,0.0,none,sembench-measured-49829
+stretto,gemma3:12b,Q2,1,success,True,,f1,0.6,0.6,70.7,182,0,16586,1158,2.4782,1.3104,1.7393,59.5,0.0,none,sembench-measured-49849
+stretto_abacus,gemma3:12b,Q2,1,success,True,,f1,0.6,0.6,63.5,182,0,16586,1156,2.3679,1.318,1.5329,59.5,0.0,none,sembench-measured-49849
+thalamusdb,gemma3:12b,Q2,1,success,True,,f1,0.6,0.6,13.3,40,0,2611,40,0.3076,0.0861,0.4167,59.8,0.0,none,sembench-measured-49821
+caesura,gemma3:12b,Q4,1,success,True,,relative_error,1.0,0.0,223.7,21,0,36644,10304,12.0547,8.339,2.3909,59.8,0.0,none,sembench-measured-49821
+lotus,gemma3:12b,Q4,1,success,True,,relative_error,0.1428571492433548,0.8571428507566452,38.9,120,0,15524,480,1.1673,0.5216,1.2645,59.8,0.0,none,sembench-measured-49821
+palimpzest,gemma3:12b,Q4,1,success,True,,relative_error,0.2857142686843872,0.7142857313156128,105.0,120,0,78390,7140,6.0745,4.314,2.3319,60.4,0.0,none,sembench-measured-49829
+stretto,gemma3:12b,Q4,1,success,True,,relative_error,4.257475261226773e-09,0.9999999957425247,63.7,181,0,16218,844,2.1272,1.0739,1.5141,59.5,0.0,none,sembench-measured-49849
+stretto_abacus,gemma3:12b,Q4,1,success,True,,relative_error,0.0714285746216774,0.9285714253783226,57.9,181,0,16218,843,2.0316,1.0745,1.4506,59.5,0.0,none,sembench-measured-49849
+thalamusdb,gemma3:12b,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,30.4,119,0,7904,119,0.7607,0.2559,1.0315,59.8,0.0,none,sembench-measured-49821
+caesura,gemma3:12b,Q5,1,success,True,,f1,0.7,0.7,214.8,18,0,31908,7724,9.8806,6.3115,4.6384,59.8,0.0,none,sembench-measured-49821
+lotus,gemma3:12b,Q5,1,,False,timeout; no metrics,,,,3600.0,19232,0,4226441,83703,177.9882,118.1771,152.2428,59.8,0.0,none,sembench-measured-49821
+palimpzest,gemma3:12b,Q5,1,success,True,,f1,0.4210526315789474,0.4210526315789474,104.0,100,0,50920,7941,6.0385,4.2946,2.1427,60.4,0.0,none,sembench-measured-49829
+stretto,gemma3:12b,Q5,1,success,True,,f1,0.0,0.0,802.3,1931,0,172959,7649,22.917,9.6594,17.4501,59.5,0.0,none,sembench-measured-49849
+stretto_abacus,gemma3:12b,Q5,1,success,True,,f1,0.0,0.0,708.4,1931,0,172959,7625,21.2301,9.5227,14.5249,59.5,0.0,none,sembench-measured-49849
+thalamusdb,gemma3:12b,Q5,1,success,True,,f1,0.7,0.7,12.5,3,0,2974,150,0.3899,0.1816,0.1612,59.8,0.0,none,sembench-measured-49821
+caesura,gemma3:27b,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,165.4,7,0,12316,2357,7.6866,4.5855,3.0574,67.5,0.0,none,sembench-measured-49876
+lotus,gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,327.0,1000,0,137831,4000,20.3663,14.2344,6.8604,67.5,0.0,none,sembench-measured-49876
+palimpzest,gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,327.9,305,0,108126,16281,26.4725,20.3237,4.0489,67.5,0.0,none,sembench-measured-49876
+stretto,gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,312.4,1158,0,105964,4425,20.1551,14.2967,7.9955,67.5,0.0,none,sembench-measured-49876
+stretto_abacus,gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,292.7,1158,0,105964,4399,18.9397,13.4497,7.8552,67.5,0.0,none,sembench-measured-49876
+thalamusdb,gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,10.7,20,0,1349,20,0.3027,0.1021,0.1972,67.5,0.0,none,sembench-measured-49876
+caesura,gemma3:27b,Q2,1,success,True,,f1,0.0,0.0,300.1,18,0,29666,9248,22.3203,16.6923,1.7168,67.5,0.0,none,sembench-measured-49876
+lotus,gemma3:27b,Q2,1,success,True,,f1,1.0,1.0,52.2,120,0,15764,480,2.3995,1.4211,0.8879,67.5,0.0,none,sembench-measured-49876
+palimpzest,gemma3:27b,Q2,1,success,True,,f1,1.0,1.0,89.7,80,0,27881,4155,6.6772,4.9944,0.8613,67.5,0.0,none,sembench-measured-49876
+stretto,gemma3:27b,Q2,1,success,True,,f1,1.0,1.0,73.0,182,0,16766,813,3.5522,2.1841,1.4508,67.5,0.0,none,sembench-measured-49876
+stretto_abacus,gemma3:27b,Q2,1,success,True,,f1,1.0,1.0,67.4,182,0,16766,815,3.4631,2.1998,1.4176,67.5,0.0,none,sembench-measured-49876
+thalamusdb,gemma3:27b,Q2,1,success,True,,f1,1.0,1.0,21.0,60,0,3913,60,0.7013,0.3072,0.5046,67.5,0.0,none,sembench-measured-49876
+caesura,gemma3:27b,Q4,1,success,True,,relative_error,1.0,0.0,377.6,24,0,47731,10150,25.747,18.6663,3.827,67.5,0.0,none,sembench-measured-49876
+lotus,gemma3:27b,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,49.3,120,0,15524,480,2.2068,1.282,0.8026,67.5,0.0,none,sembench-measured-49876
+palimpzest,gemma3:27b,Q4,1,success,True,,relative_error,4.257475261226773e-09,0.9999999957425247,163.0,120,0,78390,6854,12.7423,9.6852,1.3866,67.5,0.0,none,sembench-measured-49876
+stretto,gemma3:27b,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,74.8,181,0,16218,750,3.458,2.0558,1.5639,67.5,0.0,none,sembench-measured-49876
+stretto_abacus,gemma3:27b,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,63.1,181,0,16218,748,3.2407,2.0572,1.09,67.5,0.0,none,sembench-measured-49876
+thalamusdb,gemma3:27b,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,35.8,119,0,7904,119,1.1846,0.5135,0.8793,67.5,0.0,none,sembench-measured-49876
+caesura,gemma3:27b,Q5,1,success,True,,f1,0.0,0.0,123.0,3,0,8256,3072,7.9601,5.6531,0.6586,67.5,0.0,none,sembench-measured-49876
+lotus,gemma3:27b,Q5,1,,False,timeout; no metrics,,,,3600.0,11565,0,2430617,53404,264.4673,196.9534,76.6458,67.5,0.0,none,sembench-measured-49876
+palimpzest,gemma3:27b,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,159.6,100,0,50920,7758,12.5338,9.5402,1.3335,67.5,0.0,none,sembench-measured-49876
+stretto,gemma3:27b,Q5,1,success,True,,f1,0.0,0.0,2470.6,3577,0,277249,15398,93.871,47.5379,27.7748,67.5,0.0,none,sembench-measured-49876
+stretto_abacus,gemma3:27b,Q5,1,success,True,,f1,0.0,0.0,2364.6,3582,0,277565,15394,89.5792,45.2338,31.2532,67.5,0.0,none,sembench-measured-49876
+thalamusdb,gemma3:27b,Q5,1,success,True,,f1,1.0,1.0,18.2,4,0,3976,150,0.8027,0.4612,0.1465,67.5,0.0,none,sembench-measured-49876
+stretto,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,346.8,1308,0,119320,4787,18.801,13.0556,9.5285,59.6,0.0,none,sembench-measured-49882
+stretto,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q1,2,success,True,,f1,1.0,1.0,347.4,1308,0,119320,4792,20.1837,14.1369,6.6418,62.7,0.0,none,sembench-measured-49917
+stretto,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q1,3,success,True,,f1,1.0,1.0,339.8,1308,0,119320,4806,19.8977,13.9831,6.8313,62.7,0.0,none,sembench-measured-49917
+stretto_abacus,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q1,1,success,True,,f1,1.0,1.0,269.0,1308,0,119320,3588,8.4999,4.0429,8.1515,59.6,0.0,none,sembench-measured-49882
+stretto_abacus,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q1,2,success,True,,f1,1.0,1.0,271.1,1308,0,119320,3577,9.1773,4.4575,6.2511,62.7,0.0,none,sembench-measured-49917
+stretto_abacus,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q1,3,success,True,,f1,1.0,1.0,270.7,1308,0,119320,3582,9.0946,4.3829,5.9653,62.7,0.0,none,sembench-measured-49917
+stretto,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q2,1,success,True,,f1,1.0,1.0,76.0,200,0,18337,777,3.1049,1.845,1.6664,59.6,0.0,none,sembench-measured-49882
+stretto_abacus,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q2,1,success,True,,f1,0.6,0.6,61.1,200,0,18337,599,1.8121,0.7999,1.429,59.6,0.0,none,sembench-measured-49882
+stretto,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,70.2,199,0,17789,722,2.7047,1.5412,1.756,59.6,0.0,none,sembench-measured-49882
+stretto_abacus,gemma3:27b | operators: gemma3:4b + gemma3:27b,Q4,1,success,True,,relative_error,0.2142857164144516,0.7857142835855484,56.5,199,0,17789,534,1.5357,0.5995,1.3895,59.6,0.0,none,sembench-measured-49882
+caesura,gemma3:4b,Q1,1,success,True,,f1,0.0,0.0,152.0,19,0,32262,10393,5.81,3.3115,0.9242,59.2,0.0,none,sembench-measured-49872
+lotus,gemma3:4b,Q1,1,success,True,,f1,1.0,1.0,268.9,1000,0,137831,30377,10.5527,6.1331,5.515,59.2,0.0,none,sembench-measured-49872
+palimpzest,gemma3:4b,Q1,1,success,True,,f1,1.0,1.0,40.1,70,0,24643,3332,1.586,0.9274,0.6881,59.2,0.0,none,sembench-measured-49872
+stretto,gemma3:4b,Q1,1,success,True,,f1,1.0,1.0,244.2,1158,0,107120,3225,6.1356,2.122,3.3226,59.2,0.0,none,sembench-measured-49872
+stretto_abacus,gemma3:4b,Q1,1,success,True,,f1,1.0,1.0,224.8,1158,0,107120,3214,5.9961,2.3016,6.7644,59.2,0.0,none,sembench-measured-49872
+thalamusdb,gemma3:4b,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,8.1,20,0,1349,20,0.1611,0.0273,0.1659,59.2,0.0,none,sembench-measured-49872
+caesura,gemma3:4b,Q2,1,success,True,,f1,0.0,0.0,156.1,22,0,36185,9862,5.7705,3.2052,0.9098,59.2,0.0,none,sembench-measured-49872
+lotus,gemma3:4b,Q2,1,success,True,,f1,0.6,0.6,50.0,120,0,15764,4013,1.6481,0.8259,0.7687,59.2,0.0,none,sembench-measured-49872
+palimpzest,gemma3:4b,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,28.2,41,0,14242,1976,0.8955,0.4328,0.4182,59.2,0.0,none,sembench-measured-49872
+stretto,gemma3:4b,Q2,1,success,True,,f1,0.6,0.6,60.1,182,0,16946,743,1.3972,0.409,0.428,59.2,0.0,none,sembench-measured-49872
+stretto_abacus,gemma3:4b,Q2,1,success,True,,f1,0.6,0.6,50.7,182,0,16946,739,1.242,0.4089,1.0805,59.2,0.0,none,sembench-measured-49872
+thalamusdb,gemma3:4b,Q2,1,success,True,,f1,0.4000000000000001,0.4000000000000001,7.9,20,0,1312,20,0.1544,0.0241,0.1646,59.2,0.0,none,sembench-measured-49872
+caesura,gemma3:4b,Q4,1,success,True,,relative_error,1.0,0.0,162.6,24,0,40957,10059,5.9391,3.2675,0.907,59.2,0.0,none,sembench-measured-49872
+lotus,gemma3:4b,Q4,1,success,True,,relative_error,0.2857142686843872,0.7142857313156128,51.2,120,0,15524,4184,1.6446,0.8037,0.7706,59.2,0.0,none,sembench-measured-49872
+palimpzest,gemma3:4b,Q4,1,success,True,,relative_error,1.1065375804901123,0.0,66.3,120,0,78390,6376,2.5384,1.4489,0.9491,59.2,0.0,none,sembench-measured-49872
+stretto,gemma3:4b,Q4,1,success,True,,relative_error,0.0714285746216774,0.9285714253783226,52.8,181,0,16398,488,1.2057,0.3374,1.1997,59.2,0.0,none,sembench-measured-49872
+stretto_abacus,gemma3:4b,Q4,1,success,True,,relative_error,0.0714285746216774,0.9285714253783226,47.3,181,0,16398,490,1.1212,0.3443,1.1232,59.2,0.0,none,sembench-measured-49872
+thalamusdb,gemma3:4b,Q4,1,success,True,,relative_error,1.1428570747375488,0.0,26.0,119,0,7904,119,0.5616,0.1345,0.6927,59.2,0.0,none,sembench-measured-49872
+caesura,gemma3:4b,Q5,1,success,True,,f1,0.0,0.0,172.0,26,0,43914,10749,6.3073,3.481,0.9839,59.2,0.0,none,sembench-measured-49872
+lotus,gemma3:4b,Q5,1,,False,timeout; no metrics,,,,3600.0,9067,0,1894182,515548,146.0895,86.9219,52.7676,59.2,0.0,none,sembench-measured-49872
+palimpzest,gemma3:4b,Q5,1,success,True,,f1,0.3157894736842105,0.3157894736842105,65.5,100,0,50920,6964,2.5161,1.4393,0.9514,59.2,0.0,none,sembench-measured-49872
+stretto,gemma3:4b,Q5,1,success,True,,f1,0.0,0.0,3543.8,5572,0,406882,18082,65.4093,7.166,43.698,59.2,0.0,none,sembench-measured-49872
+stretto_abacus,gemma3:4b,Q5,1,success,True,,f1,0.0,0.0,3575.5,5670,0,413182,18353,66.2166,7.451,34.892,59.2,0.0,none,sembench-measured-49872
+thalamusdb,gemma3:4b,Q5,1,success,True,,f1,0.7,0.7,11.3,4,0,3976,108,0.2661,0.0808,0.0975,59.2,0.0,none,sembench-measured-49872
+caesura,gpt-4.1,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,404.1,40,0,97878,18073,,,,,0.3403,list_price_no_cache,sembench-openai-49888
+lotus,gpt-4.1,Q1,1,success,True,,f1,1.0,1.0,47.4,1000,0,126242,3000,,,,,0.2765,list_price_no_cache,sembench-openai-49888
+palimpzest,gpt-4.1,Q1,1,success,True,,f1,1.0,1.0,14.0,25,0,7982,1554,,,,,0.0284,list_price_no_cache,sembench-openai-49888
+stretto,gpt-4.1,Q1,1,success,True,,f1,1.0,1.0,76.1,1158,0,97056,2391,,,,,0.2132,list_price_no_cache,sembench-openai-49888
+stretto_abacus,gpt-4.1,Q1,1,success,True,,f1,1.0,1.0,48.4,1158,0,97056,2388,,,,,0.2132,list_price_no_cache,sembench-openai-49888
+thalamusdb,gpt-4.1,Q1,1,success,True,,f1,1.0,1.0,5.6,20,0,1241,20,,,,,0.0026,list_price_no_cache,sembench-openai-49888
+caesura,gpt-4.1,Q2,1,success,True,,f1,0.20000000000000004,0.20000000000000004,623.3,73,0,204228,28445,,,,,0.636,list_price_no_cache,sembench-openai-49888
+lotus,gpt-4.1,Q2,1,success,True,,f1,1.0,1.0,19.3,120,0,14474,360,,,,,0.0318,list_price_no_cache,sembench-openai-49888
+palimpzest,gpt-4.1,Q2,1,success,True,,f1,1.0,1.0,35.3,66,0,20855,4525,,,,,0.0779,list_price_no_cache,sembench-openai-49888
+stretto,gpt-4.1,Q2,1,success,True,,f1,1.0,1.0,25.8,182,0,15341,477,,,,,0.0345,list_price_no_cache,sembench-openai-49888
+stretto_abacus,gpt-4.1,Q2,1,success,True,,f1,1.0,1.0,20.9,182,0,15341,478,,,,,0.0345,list_price_no_cache,sembench-openai-49888
+thalamusdb,gpt-4.1,Q2,1,success,True,,f1,1.0,1.0,7.3,60,0,3613,60,,,,,0.0077,list_price_no_cache,sembench-openai-49888
+caesura,gpt-4.1,Q4,1,success,True,,relative_error,1.0,0.0,94.4,9,0,15946,3188,,,,,0.0574,list_price_no_cache,sembench-openai-49888
+lotus,gpt-4.1,Q4,1,success,True,,relative_error,0.6428571939468384,0.3571428060531616,19.8,120,0,14234,360,,,,,0.0313,list_price_no_cache,sembench-openai-49888
+palimpzest,gpt-4.1,Q4,1,success,True,,relative_error,0.2142857164144516,0.7857142835855484,17.6,120,0,72784,3241,,,,,0.1715,list_price_no_cache,sembench-openai-49888
+stretto,gpt-4.1,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,25.4,181,0,14878,428,,,,,0.0332,list_price_no_cache,sembench-openai-49888
+stretto_abacus,gpt-4.1,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,20.4,181,0,14878,428,,,,,0.0332,list_price_no_cache,sembench-openai-49888
+thalamusdb,gpt-4.1,Q4,1,success,True,,relative_error,0.2857142686843872,0.7142857313156128,9.1,119,0,7269,119,,,,,0.0155,list_price_no_cache,sembench-openai-49888
+caesura,gpt-4.1,Q5,1,success,True,,f1,0.0,0.0,81.1,12,0,16897,7731,,,,,0.0956,list_price_no_cache,sembench-openai-49888
+lotus,gpt-4.1,Q5,1,success,True,,f1,0.33333333333333337,0.33333333333333337,1275.7,26454,0,5353983,1161906,,,,,20.0032,list_price_no_cache,sembench-openai-49888
+palimpzest,gpt-4.1,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,18.5,100,0,45820,9991,,,,,0.1716,list_price_no_cache,sembench-openai-49888
+stretto,gpt-4.1,Q5,1,success,True,,f1,0.0,0.0,218.2,1559,0,147311,2309,,,,,0.3131,list_price_no_cache,sembench-openai-49888
+stretto_abacus,gpt-4.1,Q5,1,success,True,,f1,0.0,0.0,150.7,1559,0,147311,2185,,,,,0.3121,list_price_no_cache,sembench-openai-49888
+thalamusdb,gpt-4.1,Q5,1,success,True,,f1,0.6,0.6,7.6,2,0,1730,202,,,,,0.0051,list_price_no_cache,sembench-openai-49888
+caesura,gpt-4o-mini,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,49.9,7,0,12029,2070,,,,,0.003,list_price_no_cache,sembench-openai-49840
+lotus,gpt-4o-mini,Q1,1,success,True,,f1,1.0,1.0,54.6,1000,0,126242,3000,,,,,0.0207,list_price_no_cache,sembench-openai-49844
+palimpzest,gpt-4o-mini,Q1,1,success,True,,f1,1.0,1.0,14.4,25,0,7982,1722,,,,,0.0022,list_price_no_cache,sembench-openai-49840
+stretto,gpt-4o-mini,Q1,1,success,True,,f1,1.0,1.0,62.4,1158,0,95900,1275,,,,,0.0151,list_price_no_cache,sembench-openai-49840
+stretto_abacus,gpt-4o-mini,Q1,1,success,True,,f1,1.0,1.0,52.5,1158,0,100524,1280,,,,,0.0158,list_price_no_cache,sembench-openai-49840
+thalamusdb,gpt-4o-mini,Q1,1,success,True,,f1,1.0,1.0,5.3,20,0,1241,20,,,,,0.0002,list_price_no_cache,sembench-openai-49840
+caesura,gpt-4o-mini,Q2,1,success,True,,f1,0.0,0.0,333.8,63,0,158448,25818,,,,,0.0393,list_price_no_cache,sembench-openai-49840
+lotus,gpt-4o-mini,Q2,1,success,True,,f1,1.0,1.0,32.0,120,0,14474,360,,,,,0.0024,list_price_no_cache,sembench-openai-49844
+palimpzest,gpt-4o-mini,Q2,1,success,True,,f1,1.0,1.0,62.8,120,0,37984,7266,,,,,0.0101,list_price_no_cache,sembench-openai-49840
+stretto,gpt-4o-mini,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,32.1,182,0,15161,299,,,,,0.0025,list_price_no_cache,sembench-openai-49846
+stretto_abacus,gpt-4o-mini,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,23.8,182,0,15161,299,,,,,0.0025,list_price_no_cache,sembench-openai-49851
+thalamusdb,gpt-4o-mini,Q2,1,success,False,1/61 LLM calls failed,f1,1.0,1.0,6.8,61,1,3613,60,,,,,0.0006,list_price_no_cache,sembench-openai-49840
+caesura,gpt-4o-mini,Q4,1,success,True,,relative_error,1.0,0.0,115.3,20,0,47623,7719,,,,,0.0118,list_price_no_cache,sembench-openai-49840
+lotus,gpt-4o-mini,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,20.5,120,0,14234,360,,,,,0.0024,list_price_no_cache,sembench-openai-49844
+palimpzest,gpt-4o-mini,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,19.5,120,0,72784,6750,,,,,0.015,list_price_no_cache,sembench-openai-49840
+stretto,gpt-4o-mini,Q4,1,success,True,,relative_error,0.2142857164144516,0.7857142835855484,28.0,181,0,14698,250,,,,,0.0024,list_price_no_cache,sembench-openai-49846
+stretto_abacus,gpt-4o-mini,Q4,1,success,True,,relative_error,0.2142857164144516,0.7857142835855484,25.0,181,0,14698,250,,,,,0.0024,list_price_no_cache,sembench-openai-49851
+thalamusdb,gpt-4o-mini,Q4,1,success,True,,relative_error,0.1428571492433548,0.8571428507566452,9.8,119,0,7269,119,,,,,0.0012,list_price_no_cache,sembench-openai-49840
+caesura,gpt-4o-mini,Q5,1,success,True,,f1,0.4615384615384615,0.4615384615384615,247.3,19,0,45975,5760,,,,,0.0104,list_price_no_cache,sembench-openai-49840
+lotus,gpt-4o-mini,Q5,1,success,True,1/27574 LLM calls failed,f1,0.33333333333333337,0.33333333333333337,1097.9,27574,1,5600610,90678,,,,,0.8945,list_price_no_cache,sembench-openai-49844
+palimpzest,gpt-4o-mini,Q5,1,success,True,,f1,0.3,0.3,20.1,100,0,45820,8448,,,,,0.0119,list_price_no_cache,sembench-openai-49840
+stretto,gpt-4o-mini,Q5,1,success,True,,f1,0.0,0.0,1749.7,3731,0,262583,7145,,,,,0.0437,list_price_no_cache,sembench-openai-49847
+stretto_abacus,gpt-4o-mini,Q5,1,success,True,,f1,0.0,0.0,1663.9,3753,0,263688,7189,,,,,0.0439,list_price_no_cache,sembench-openai-49851
+thalamusdb,gpt-4o-mini,Q5,1,success,True,,f1,0.6,0.6,9.9,4,0,3474,96,,,,,0.0006,list_price_no_cache,sembench-openai-49840
+caesura,gpt-5-mini,Q1,1,success,True,,f1,0.0,0.0,399.2,23,0,36966,12759,,,,,0.0348,list_price_no_cache,sembench-openai-49879
+lotus,gpt-5-mini,Q1,1,success,True,,f1,1.0,1.0,59.0,1000,0,125242,12000,,,,,0.0553,list_price_no_cache,sembench-openai-49879
+palimpzest,gpt-5-mini,Q1,1,success,True,,f1,1.0,1.0,14.5,25,0,7957,722,,,,,0.0034,list_price_no_cache,sembench-openai-49879
+stretto,gpt-5-mini,Q1,1,success,True,,f1,1.0,1.0,76.9,1158,0,97054,11692,,,,,0.0476,list_price_no_cache,sembench-openai-49879
+stretto_abacus,gpt-5-mini,Q1,1,success,True,,f1,1.0,1.0,67.5,1158,0,95898,11691,,,,,0.0474,list_price_no_cache,sembench-openai-49879
+thalamusdb,gpt-5-mini,Q1,1,success,True,,f1,1.0,1.0,5.9,20,0,1221,200,,,,,0.0007,list_price_no_cache,sembench-openai-49879
+caesura,gpt-5-mini,Q2,1,success,True,,f1,0.20000000000000004,0.20000000000000004,223.0,26,0,43330,10410,,,,,0.0317,list_price_no_cache,sembench-openai-49879
+lotus,gpt-5-mini,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,22.1,120,0,14354,1440,,,,,0.0065,list_price_no_cache,sembench-openai-49879
+palimpzest,gpt-5-mini,Q2,1,success,True,,f1,1.0,1.0,52.7,104,0,32830,1906,,,,,0.012,list_price_no_cache,sembench-openai-49879
+stretto,gpt-5-mini,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,32.1,182,0,15159,1931,,,,,0.0077,list_price_no_cache,sembench-openai-49879
+stretto_abacus,gpt-5-mini,Q2,1,success,True,,f1,1.0,1.0,26.7,182,0,15159,1931,,,,,0.0077,list_price_no_cache,sembench-openai-49879
+thalamusdb,gpt-5-mini,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,7.3,40,0,2373,400,,,,,0.0014,list_price_no_cache,sembench-openai-49879
+caesura,gpt-5-mini,Q4,1,success,True,,relative_error,7.571428298950195,0.0,117.6,9,0,14919,3340,,,,,0.0104,list_price_no_cache,sembench-openai-49879
+lotus,gpt-5-mini,Q4,1,success,True,,relative_error,0.2857142984867096,0.7142857015132904,22.0,120,0,14114,1440,,,,,0.0064,list_price_no_cache,sembench-openai-49879
+palimpzest,gpt-5-mini,Q4,1,success,True,,relative_error,0.2857142686843872,0.7142857313156128,19.7,120,0,72664,2399,,,,,0.023,list_price_no_cache,sembench-openai-49879
+stretto,gpt-5-mini,Q4,1,success,True,,relative_error,4.257475261226773e-09,0.9999999957425247,31.7,181,0,15057,1878,,,,,0.0075,list_price_no_cache,sembench-openai-49879
+stretto_abacus,gpt-5-mini,Q4,1,success,True,,relative_error,0.2142857164144516,0.7857142835855484,25.3,181,0,14697,1876,,,,,0.0074,list_price_no_cache,sembench-openai-49879
+thalamusdb,gpt-5-mini,Q4,1,success,True,,relative_error,0.0714285671710968,0.9285714328289032,14.0,119,0,7150,1190,,,,,0.0042,list_price_no_cache,sembench-openai-49879
+caesura,gpt-5-mini,Q5,1,success,True,,f1,0.0,0.0,211.1,17,0,24418,9128,,,,,0.0244,list_price_no_cache,sembench-openai-49879
+lotus,gpt-5-mini,Q5,1,success,True,,f1,0.33333333333333337,0.33333333333333337,1286.7,24836,0,4994928,306428,,,,,1.8616,list_price_no_cache,sembench-openai-49879
+palimpzest,gpt-5-mini,Q5,1,success,True,,f1,0.7,0.7,21.8,100,0,45720,9250,,,,,0.0299,list_price_no_cache,sembench-openai-49879
+stretto,gpt-5-mini,Q5,1,success,True,,f1,0.0,0.0,350.0,1642,0,157210,16872,,,,,0.073,list_price_no_cache,sembench-openai-49879
+stretto_abacus,gpt-5-mini,Q5,1,success,True,,f1,0.0,0.0,170.3,1551,0,149546,15953,,,,,0.0693,list_price_no_cache,sembench-openai-49879
+thalamusdb,gpt-5-mini,Q5,1,success,True,,f1,0.7,0.7,8.5,2,0,1728,100,,,,,0.0006,list_price_no_cache,sembench-openai-49879
+caesura,llama3.1:8b,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,247.6,17,0,30692,7312,7.7414,3.563,8.4445,60.7,0.0,none,sembench-measured-49827
+lotus,llama3.1:8b,Q1,1,success,True,,f1,1.0,1.0,104.4,1000,0,130761,8054,4.9659,3.2043,4.0619,60.7,0.0,none,sembench-measured-49827
+palimpzest,llama3.1:8b,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,30.2,55,0,17766,3452,1.5387,1.0295,0.7,60.7,0.0,none,sembench-measured-49827
+stretto,llama3.1:8b,Q1,1,success,True,,f1,1.0,1.0,143.8,1158,0,104548,3077,4.507,2.0837,5.4986,60.7,0.0,none,sembench-measured-49826
+stretto_abacus,llama3.1:8b,Q1,1,success,True,,f1,1.0,1.0,121.7,1158,0,104548,3105,4.081,2.0516,5.0098,60.0,0.0,none,sembench-measured-49835
+thalamusdb,llama3.1:8b,Q1,1,success,True,,f1,1.0,1.0,6.7,20,0,1321,20,0.1447,0.0314,0.1583,60.7,0.0,none,sembench-measured-49827
+caesura,llama3.1:8b,Q2,1,success,True,,f1,0.0,0.0,143.5,20,0,32916,10041,7.2162,4.7946,1.558,60.7,0.0,none,sembench-measured-49827
+lotus,llama3.1:8b,Q2,1,success,True,,f1,1.0,1.0,27.1,120,0,15032,751,0.7884,0.3305,0.7017,60.7,0.0,none,sembench-measured-49827
+palimpzest,llama3.1:8b,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,28.7,44,0,14110,2752,1.3063,0.8222,0.5671,60.7,0.0,none,sembench-measured-49827
+stretto,llama3.1:8b,Q2,1,failed,True,engine: KeyError: 'title',f1,0.0,0.0,18.4,1,0,984,643,0.6003,0.2971,0.1394,59.4,0.0,none,sembench-measured-49850
+stretto_abacus,llama3.1:8b,Q2,1,success,True,,f1,0.6,0.6,35.7,182,0,16366,1075,1.1889,0.5998,0.7682,59.4,0.0,none,sembench-measured-49850
+thalamusdb,llama3.1:8b,Q2,1,success,True,,f1,0.6,0.6,8.3,40,0,2580,40,0.1951,0.0553,0.2494,60.7,0.0,none,sembench-measured-49827
+caesura,llama3.1:8b,Q4,1,success,True,,relative_error,1.0,0.0,136.2,17,0,28787,9889,7.1014,4.8033,1.5102,60.7,0.0,none,sembench-measured-49827
+lotus,llama3.1:8b,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,30.3,120,0,14792,1820,1.0554,0.5441,0.7678,60.7,0.0,none,sembench-measured-49827
+palimpzest,llama3.1:8b,Q4,1,success,True,,relative_error,0.8571428656578064,0.1428571343421936,84.6,120,0,73336,15323,5.2006,3.7737,1.5128,60.7,0.0,none,sembench-measured-49827
+stretto,llama3.1:8b,Q4,1,failed,True,engine: KeyError: 'title',relative_error,1.0,0.0,15.6,1,0,984,600,0.5445,0.2875,0.1469,59.4,0.0,none,sembench-measured-49850
+stretto_abacus,llama3.1:8b,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,29.1,157,0,14075,617,0.8419,0.3607,0.6668,59.4,0.0,none,sembench-measured-49850
+thalamusdb,llama3.1:8b,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,15.6,119,0,7770,119,0.4046,0.1407,0.5482,60.7,0.0,none,sembench-measured-49827
+caesura,llama3.1:8b,Q5,1,success,True,,f1,0.0,0.0,99.0,9,0,14317,6652,4.8932,3.2228,1.0884,60.7,0.0,none,sembench-measured-49827
+lotus,llama3.1:8b,Q5,1,,False,timeout; no metrics,,,,3600.0,33433,0,6906564,385365,199.4889,138.7391,140.4286,60.7,0.0,none,sembench-measured-49827
+palimpzest,llama3.1:8b,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,74.4,100,0,45940,12916,4.5149,3.2602,1.333,60.7,0.0,none,sembench-measured-49827
+stretto,llama3.1:8b,Q5,1,success,True,,f1,0.0,0.0,1994.4,5548,0,443867,23106,72.5212,39.5957,30.2195,59.4,0.0,none,sembench-measured-49850
+stretto_abacus,llama3.1:8b,Q5,1,failed,True,engine: KeyError: 'RenameWithIndex',f1,0.0,0.0,18.2,2,0,1560,795,0.6803,0.3804,0.1487,59.4,0.0,none,sembench-measured-49850
+thalamusdb,llama3.1:8b,Q5,1,success,True,,f1,0.6,0.6,12.3,6,0,5346,146,0.3556,0.1473,0.1957,60.7,0.0,none,sembench-measured-49827
+stretto,llama3.1:8b | operators: llama3.2:3b + llama3.1:8b,Q1,1,success,True,,f1,1.0,1.0,182.8,1308,0,119359,3622,5.3355,2.311,4.854,59.6,0.0,none,sembench-measured-49883
+stretto_abacus,llama3.1:8b | operators: llama3.2:3b + llama3.1:8b,Q1,1,success,True,,f1,1.0,1.0,165.4,1308,0,119359,3642,5.0601,2.3233,3.6077,59.6,0.0,none,sembench-measured-49883
+stretto,llama3.1:8b | operators: llama3.2:3b + llama3.1:8b,Q2,1,failed,True,engine: KeyError: 'title',f1,0.0,0.0,16.0,1,0,984,594,0.5442,0.279,0.1221,59.6,0.0,none,sembench-measured-49883
+stretto_abacus,llama3.1:8b | operators: llama3.2:3b + llama3.1:8b,Q2,1,failed,True,engine: KeyError: 'title',f1,0.0,0.0,16.1,1,0,984,601,0.5495,0.2826,0.0993,59.6,0.0,none,sembench-measured-49883
+stretto,llama3.1:8b | operators: llama3.2:3b + llama3.1:8b,Q4,1,success,True,,relative_error,0.0714285671710968,0.9285714328289032,59.3,199,0,18042,917,1.5089,0.5272,1.1593,59.6,0.0,none,sembench-measured-49883
+stretto_abacus,llama3.1:8b | operators: llama3.2:3b + llama3.1:8b,Q4,1,failed,True,engine: KeyError: 'title',relative_error,1.0,0.0,16.3,1,0,984,666,0.5713,0.3008,0.0956,59.6,0.0,none,sembench-measured-49883
+caesura,llama3.2:1b,Q1,1,success,True,,f1,0.0,0.0,96.1,17,0,30110,12011,3.2565,1.5746,0.5251,63.0,0.0,none,sembench-measured-49874
+lotus,llama3.2:1b,Q1,1,success,True,,f1,1.0,1.0,96.1,1000,0,140761,4000,1.9317,0.2491,2.622,63.0,0.0,none,sembench-measured-49874
+palimpzest,llama3.2:1b,Q1,1,success,True,,f1,1.0,1.0,41.7,80,0,26776,11805,1.2402,0.51,0.4209,63.0,0.0,none,sembench-measured-49874
+stretto,llama3.2:1b,Q1,1,failed,True,engine: KeyError: 'question_template',f1,0.0,0.0,148.7,1,0,990,1791,7.7819,5.179,1.0853,63.0,0.0,none,sembench-measured-49874
+stretto_abacus,llama3.2:1b,Q1,1,failed,True,engine: KeyError: 'question_template',f1,0.0,0.0,28.1,1,0,990,1791,1.5191,1.0277,0.3069,63.0,0.0,none,sembench-measured-49874
+thalamusdb,llama3.2:1b,Q1,1,success,True,,f1,0.6,0.6,6.1,20,0,1621,20,0.1176,0.0105,0.0949,63.0,0.0,none,sembench-measured-49874
+caesura,llama3.2:1b,Q2,1,success,True,,f1,0.0,0.0,83.1,17,0,27527,7410,2.5056,1.0515,0.3895,63.0,0.0,none,sembench-measured-49874
+lotus,llama3.2:1b,Q2,1,success,True,,f1,0.0,0.0,27.8,120,0,16232,480,0.5274,0.0406,0.4369,63.0,0.0,none,sembench-measured-49874
+palimpzest,llama3.2:1b,Q2,1,success,True,,f1,0.0,0.0,18.4,17,0,5613,2306,0.4803,0.1586,0.1719,63.0,0.0,none,sembench-measured-49874
+stretto,llama3.2:1b,Q2,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,f1,0.0,0.0,32.5,3,0,5301,2170,1.6939,1.1244,0.331,63.0,0.0,none,sembench-measured-49874
+stretto_abacus,llama3.2:1b,Q2,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,f1,0.0,0.0,31.7,3,0,5295,2181,1.7473,1.192,0.3373,63.0,0.0,none,sembench-measured-49874
+thalamusdb,llama3.2:1b,Q2,1,success,True,,f1,0.0,0.0,6.1,20,0,1588,20,0.1215,0.014,0.0975,63.0,0.0,none,sembench-measured-49874
+caesura,llama3.2:1b,Q4,1,success,True,,relative_error,1.0,0.0,86.3,18,0,25870,8559,2.7222,1.2114,0.4325,63.0,0.0,none,sembench-measured-49874
+lotus,llama3.2:1b,Q4,1,success,True,,relative_error,0.9285714626312256,0.07142853736877441,26.2,120,0,15992,480,0.4971,0.0381,0.4291,63.0,0.0,none,sembench-measured-49874
+palimpzest,llama3.2:1b,Q4,1,success,True,,relative_error,0.680672287940979,0.319327712059021,57.3,120,0,74536,19474,2.0406,1.037,0.691,63.0,0.0,none,sembench-measured-49874
+stretto,llama3.2:1b,Q4,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,relative_error,1.0,0.0,32.2,3,0,5295,2181,1.6809,1.1175,0.3333,63.0,0.0,none,sembench-measured-49874
+stretto_abacus,llama3.2:1b,Q4,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,relative_error,1.0,0.0,31.7,3,0,5295,2181,1.754,1.1994,0.3462,63.0,0.0,none,sembench-measured-49874
+thalamusdb,llama3.2:1b,Q4,1,success,True,,relative_error,1.2857143878936768,0.0,14.7,119,0,9555,119,0.2979,0.0408,0.3494,63.0,0.0,none,sembench-measured-49874
+caesura,llama3.2:1b,Q5,1,success,True,,f1,0.0,0.0,92.1,17,0,28921,11231,3.0761,1.4648,0.4451,63.0,0.0,none,sembench-measured-49874
+lotus,llama3.2:1b,Q5,1,success,True,,f1,0.5333333333333333,0.5333333333333333,1739.1,20152,0,4297468,117944,38.3884,7.9461,50.4978,63.0,0.0,none,sembench-measured-49874
+palimpzest,llama3.2:1b,Q5,1,success,True,,f1,0.5,0.5,52.2,100,0,46940,18412,1.9341,1.0196,0.5938,63.0,0.0,none,sembench-measured-49874
+stretto,llama3.2:1b,Q5,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,f1,0.0,0.0,59.5,3,0,8063,5207,3.1634,2.1223,0.5451,63.0,0.0,none,sembench-measured-49874
+stretto_abacus,llama3.2:1b,Q5,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,f1,0.0,0.0,58.8,3,0,8063,5207,3.2313,2.2024,0.5005,63.0,0.0,none,sembench-measured-49874
+thalamusdb,llama3.2:1b,Q5,1,success,True,,f1,0.6,0.6,114.7,133,0,107415,3597,2.6339,0.6254,0.9314,63.0,0.0,none,sembench-measured-49874
+caesura,llama3.2:3b,Q1,1,success,True,,f1,0.0,0.0,109.2,20,0,34094,8713,4.2437,2.3661,0.466,61.9,0.0,none,sembench-measured-49871
+lotus,llama3.2:3b,Q1,1,success,True,,f1,1.0,1.0,145.9,1000,0,140761,30090,6.617,4.1088,2.7051,61.9,0.0,none,sembench-measured-49871
+palimpzest,llama3.2:3b,Q1,1,success,True,,f1,1.0,1.0,40.6,60,0,20031,8191,1.9561,1.2575,0.3902,61.9,0.0,none,sembench-measured-49871
+stretto,llama3.2:3b,Q1,1,failed,True,engine: KeyError: 'Custom Implementation (SQL)',f1,0.0,0.0,19.3,20,0,3356,1053,0.6187,0.2877,0.2,61.9,0.0,none,sembench-measured-49871
+stretto_abacus,llama3.2:3b,Q1,1,failed,True,engine: KeyError: 'Custom Limit',f1,0.0,0.0,18.7,20,0,3428,1002,0.5825,0.2609,0.2967,61.9,0.0,none,sembench-measured-49871
+thalamusdb,llama3.2:3b,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,6.2,20,0,1621,20,0.135,0.0285,0.0919,61.9,0.0,none,sembench-measured-49871
+caesura,llama3.2:3b,Q2,1,success,True,,f1,0.0,0.0,116.4,19,0,33153,10595,4.8019,2.7995,0.5669,61.9,0.0,none,sembench-measured-49871
+lotus,llama3.2:3b,Q2,1,success,True,,f1,0.6,0.6,27.6,120,0,16232,1720,0.805,0.3306,0.3833,61.9,0.0,none,sembench-measured-49871
+palimpzest,llama3.2:3b,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,37.3,53,0,17513,7226,1.6169,0.9754,0.3299,61.9,0.0,none,sembench-measured-49871
+stretto,llama3.2:3b,Q2,1,failed,True,engine: KeyError: 'Custom Limit',f1,0.0,0.0,21.1,44,0,5884,1065,0.6609,0.2975,0.3148,61.9,0.0,none,sembench-measured-49871
+stretto_abacus,llama3.2:3b,Q2,1,failed,True,engine: KeyError: 'Custom Limit',f1,0.0,0.0,21.0,44,0,5884,1084,0.6567,0.2962,0.2983,61.9,0.0,none,sembench-measured-49871
+thalamusdb,llama3.2:3b,Q2,1,success,True,,f1,0.20000000000000004,0.20000000000000004,6.3,20,0,1588,20,0.1337,0.0262,0.0983,61.9,0.0,none,sembench-measured-49871
+caesura,llama3.2:3b,Q4,1,success,True,,relative_error,1.0,0.0,110.4,20,0,30111,9037,4.3427,2.4435,0.5722,61.9,0.0,none,sembench-measured-49871
+lotus,llama3.2:3b,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,32.1,120,0,15992,3290,1.0369,0.4851,0.415,61.9,0.0,none,sembench-measured-49871
+palimpzest,llama3.2:3b,Q4,1,success,True,,relative_error,0.9548872113227844,0.045112788677215576,86.8,120,0,74536,22826,4.4892,2.9969,0.7097,61.9,0.0,none,sembench-measured-49871
+stretto,llama3.2:3b,Q4,1,success,True,,relative_error,0.1428571343421936,0.8571428656578064,39.1,181,0,20229,745,0.9711,0.2993,0.8816,61.9,0.0,none,sembench-measured-49871
+stretto_abacus,llama3.2:3b,Q4,1,success,True,,relative_error,0.0714285671710968,0.9285714328289032,34.6,229,0,25319,841,0.9126,0.3172,0.7828,61.9,0.0,none,sembench-measured-49871
+thalamusdb,llama3.2:3b,Q4,1,success,True,,relative_error,3.2142856121063232,0.0,14.9,119,0,9555,119,0.375,0.118,0.3034,61.9,0.0,none,sembench-measured-49871
+caesura,llama3.2:3b,Q5,1,success,True,,f1,0.0,0.0,123.2,26,0,46602,9669,4.7758,2.6567,0.6053,61.9,0.0,none,sembench-measured-49871
+lotus,llama3.2:3b,Q5,1,,False,timeout; no metrics,,,,3600.0,25703,0,5472691,847880,186.5404,124.6381,69.1496,61.9,0.0,none,sembench-measured-49871
+palimpzest,llama3.2:3b,Q5,1,success,True,,f1,0.3157894736842105,0.3157894736842105,63.1,100,0,46940,15711,3.1586,2.0741,0.6371,61.9,0.0,none,sembench-measured-49871
+stretto,llama3.2:3b,Q5,1,failed,True,engine: KeyError: 'LogicalRename',f1,0.0,0.0,14.2,1,0,832,572,0.3966,0.1527,0.1284,61.9,0.0,none,sembench-measured-49871
+stretto_abacus,llama3.2:3b,Q5,1,failed,True,engine: KeyError: 'LogicalRename',f1,0.0,0.0,14.5,1,0,832,662,0.4206,0.1711,0.1117,61.9,0.0,none,sembench-measured-49871
+thalamusdb,llama3.2:3b,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,10.1,5,0,4547,109,0.2583,0.0852,0.0692,61.9,0.0,none,sembench-measured-49871
+caesura,qwen2.5:14b-instruct,Q1,1,success,True,,f1,0.0,0.0,160.9,14,0,20578,7983,10.3077,7.4245,0.8477,64.5,0.0,none,sembench-measured-49873
+lotus,qwen2.5:14b-instruct,Q1,1,success,True,,f1,1.0,1.0,466.8,1000,0,130490,55458,34.4543,26.0912,1.8521,64.5,0.0,none,sembench-measured-49873
+palimpzest,qwen2.5:14b-instruct,Q1,1,success,True,,f1,1.0,1.0,96.7,150,0,48647,10074,7.3687,5.6363,0.7093,64.5,0.0,none,sembench-measured-49873
+stretto,qwen2.5:14b-instruct,Q1,1,success,True,,f1,1.0,1.0,121.0,1158,0,104599,2870,5.5175,3.3492,3.3968,64.5,0.0,none,sembench-measured-49873
+stretto_abacus,qwen2.5:14b-instruct,Q1,1,success,True,,f1,1.0,1.0,108.4,1158,0,105755,2836,5.2671,3.3245,3.0625,64.5,0.0,none,sembench-measured-49873
+thalamusdb,qwen2.5:14b-instruct,Q1,1,success,True,,f1,1.0,1.0,6.8,20,0,1714,20,0.166,0.0447,0.0952,64.5,0.0,none,sembench-measured-49873
+caesura,qwen2.5:14b-instruct,Q2,1,success,True,,f1,0.0,0.0,110.4,10,0,20004,4266,5.977,3.9991,0.5475,64.5,0.0,none,sembench-measured-49873
+lotus,qwen2.5:14b-instruct,Q2,1,success,True,,f1,1.0,1.0,53.7,120,0,14926,4190,3.0388,2.076,0.4683,64.5,0.0,none,sembench-measured-49873
+palimpzest,qwen2.5:14b-instruct,Q2,1,success,True,,f1,1.0,1.0,74.8,120,0,38325,7833,5.1282,3.7877,0.658,64.5,0.0,none,sembench-measured-49873
+stretto,qwen2.5:14b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,42.7,182,0,15895,971,1.7626,0.9974,0.6087,64.5,0.0,none,sembench-measured-49873
+stretto_abacus,qwen2.5:14b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,34.3,182,0,15895,768,1.4396,0.8245,0.5891,64.5,0.0,none,sembench-measured-49873
+thalamusdb,qwen2.5:14b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,10.2,60,0,5013,60,0.3009,0.1182,0.1428,64.5,0.0,none,sembench-measured-49873
+caesura,qwen2.5:14b-instruct,Q4,1,success,True,,relative_error,1.0,0.0,205.5,25,0,50273,10083,13.1494,9.4678,1.1404,64.5,0.0,none,sembench-measured-49873
+lotus,qwen2.5:14b-instruct,Q4,1,success,True,,relative_error,0.5,0.5,55.9,120,0,14686,4452,3.1823,2.1815,0.5041,64.5,0.0,none,sembench-measured-49873
+palimpzest,qwen2.5:14b-instruct,Q4,1,success,True,,relative_error,0.1428571492433548,0.8571428507566452,79.9,120,0,74325,8639,5.5876,4.157,0.6304,64.5,0.0,none,sembench-measured-49873
+stretto,qwen2.5:14b-instruct,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,38.2,181,0,15414,732,1.4542,0.7701,0.7522,64.5,0.0,none,sembench-measured-49873
+stretto_abacus,qwen2.5:14b-instruct,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,32.6,181,0,15414,716,1.3153,0.7313,0.5643,64.5,0.0,none,sembench-measured-49873
+thalamusdb,qwen2.5:14b-instruct,Q4,1,success,True,,relative_error,0.2857142686843872,0.7142857313156128,15.7,119,0,10059,119,0.5074,0.2268,0.2751,64.5,0.0,none,sembench-measured-49873
+caesura,qwen2.5:14b-instruct,Q5,1,success,True,,f1,0.0,0.0,141.9,12,0,16547,6912,8.9248,6.3834,0.7606,64.5,0.0,none,sembench-measured-49873
+lotus,qwen2.5:14b-instruct,Q5,1,,False,timeout; no metrics,,,,3600.0,4228,0,847167,473222,274.0316,209.5408,28.3244,64.5,0.0,none,sembench-measured-49873
+palimpzest,qwen2.5:14b-instruct,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,93.6,100,0,46500,10708,6.7529,5.076,0.7168,64.5,0.0,none,sembench-measured-49873
+stretto,qwen2.5:14b-instruct,Q5,1,success,True,,f1,0.0,0.0,312.2,1658,0,148391,5123,10.5953,5.0024,6.9526,64.5,0.0,none,sembench-measured-49873
+stretto_abacus,qwen2.5:14b-instruct,Q5,1,success,True,,f1,0.0,0.0,217.9,1658,0,148391,5122,8.9112,5.0077,4.0693,64.5,0.0,none,sembench-measured-49873
+thalamusdb,qwen2.5:14b-instruct,Q5,1,success,True,,f1,0.7,0.7,11.1,4,0,3855,100,0.3823,0.1837,0.0575,64.5,0.0,none,sembench-measured-49873
+caesura,qwen2.5:32b-instruct,Q1,1,success,True,,f1,0.0,0.0,453.5,21,0,37674,7417,21.8374,14.2681,9.2848,60.1,0.0,none,sembench-measured-49875
+lotus,qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,1021.7,1000,0,130490,71332,90.0592,73.006,8.2032,60.1,0.0,none,sembench-measured-49875
+palimpzest,qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,399.4,385,0,125606,25940,35.6559,28.9888,2.8433,60.1,0.0,none,sembench-measured-49875
+stretto,qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,150.8,1158,0,106911,2832,9.1172,6.6,3.1599,60.1,0.0,none,sembench-measured-49875
+stretto_abacus,qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,137.7,1158,0,106911,2831,8.9044,6.6066,3.3699,60.1,0.0,none,sembench-measured-49875
+thalamusdb,qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,7.7,20,0,1714,20,0.2217,0.0934,0.1069,60.1,0.0,none,sembench-measured-49875
+caesura,qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.20000000000000004,0.20000000000000004,208.2,15,0,28684,4645,12.5053,9.0298,2.6351,60.1,0.0,none,sembench-measured-49875
+lotus,qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,127.4,120,0,14926,7806,10.0226,7.896,0.9874,60.1,0.0,none,sembench-measured-49875
+palimpzest,qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,72.5,66,0,21037,4155,5.4655,4.2555,0.5425,60.1,0.0,none,sembench-measured-49875
+stretto,qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,53.8,182,0,16255,942,2.8647,1.9668,0.7434,60.1,0.0,none,sembench-measured-49875
+stretto_abacus,qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,48.4,182,0,16255,942,2.8494,2.0415,0.6915,60.1,0.0,none,sembench-measured-49875
+thalamusdb,qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,9.6,40,0,3344,40,0.3098,0.1499,0.1556,60.1,0.0,none,sembench-measured-49875
+caesura,qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.5714285969734192,0.4285714030265808,209.4,15,0,29257,4650,12.4939,8.999,3.0232,60.1,0.0,none,sembench-measured-49875
+lotus,qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.5,0.5,119.8,120,0,14686,7280,9.319,7.319,0.9048,60.1,0.0,none,sembench-measured-49875
+palimpzest,qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,4.257475261226773e-09,0.9999999957425247,118.5,120,0,74325,7249,9.428,7.4496,1.0493,60.1,0.0,none,sembench-measured-49875
+stretto,qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.2857142984867096,0.7142857015132904,45.5,181,0,15774,678,2.21,1.4497,0.6878,60.1,0.0,none,sembench-measured-49875
+stretto_abacus,qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.2857142984867096,0.7142857015132904,39.7,181,0,15774,678,2.1307,1.4686,0.7479,60.1,0.0,none,sembench-measured-49875
+thalamusdb,qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.0714285671710968,0.9285714328289032,19.4,119,0,10059,119,0.7381,0.4136,0.3722,60.1,0.0,none,sembench-measured-49875
+caesura,qwen2.5:32b-instruct,Q5,1,success,True,,f1,0.0,0.0,631.7,39,0,68288,14762,39.0084,28.4637,10.873,60.1,0.0,none,sembench-measured-49875
+lotus,qwen2.5:32b-instruct,Q5,1,,False,timeout; no metrics,,,,3600.0,2313,0,464751,263789,313.1815,253.0917,22.8896,60.1,0.0,none,sembench-measured-49875
+palimpzest,qwen2.5:32b-instruct,Q5,1,success,True,,f1,0.4210526315789474,0.4210526315789474,156.7,100,0,46500,10236,13.1866,10.5713,1.3602,60.1,0.0,none,sembench-measured-49875
+stretto,qwen2.5:32b-instruct,Q5,1,success,True,,f1,0.0,0.0,350.4,1616,0,144115,5131,15.8827,10.0339,7.2504,60.1,0.0,none,sembench-measured-49875
+stretto_abacus,qwen2.5:32b-instruct,Q5,1,success,True,,f1,0.0,0.0,259.5,1616,0,144115,5131,14.5464,10.2143,4.9218,60.1,0.0,none,sembench-measured-49875
+thalamusdb,qwen2.5:32b-instruct,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,12.0,3,0,2888,95,0.5134,0.3132,0.0966,60.1,0.0,none,sembench-measured-49875
+stretto,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,169.9,1308,0,123047,3207,9.6083,6.8162,4.7077,59.2,0.0,none,sembench-measured-49853
+stretto_abacus,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct,Q1,1,success,True,,f1,1.0,1.0,147.3,1308,0,120435,3172,9.263,6.8425,4.0496,59.2,0.0,none,sembench-measured-49853
+stretto,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,53.2,200,0,18978,853,2.5213,1.6478,0.9262,59.2,0.0,none,sembench-measured-49853
+stretto_abacus,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,48.2,200,0,17790,1001,2.7345,1.9416,0.8876,59.2,0.0,none,sembench-measured-49853
+stretto,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.4285714328289032,0.5714285671710968,47.6,199,0,17705,668,2.0087,1.2272,0.8783,59.2,0.0,none,sembench-measured-49853
+stretto_abacus,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct,Q4,1,success,True,,relative_error,0.2857142984867096,0.7142857015132904,39.2,199,0,17309,714,1.981,1.3371,0.7903,59.2,0.0,none,sembench-measured-49853
+stretto,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct | target 0.6,Q1,1,success,True,,f1,1.0,1.0,169.7,1308,0,123047,3207,9.5617,6.7452,4.0228,59.8,0.0,none,sembench-measured-49884
+stretto_abacus,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct | target 0.6,Q1,1,success,True,,f1,1.0,1.0,125.7,1308,0,120435,3173,4.7902,2.7028,3.2388,59.8,0.0,none,sembench-measured-49884
+stretto,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct | target 0.6,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,56.8,200,0,17790,1001,2.8323,1.8887,1.0261,59.8,0.0,none,sembench-measured-49884
+stretto_abacus,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct | target 0.6,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,45.8,200,0,17790,964,2.517,1.7563,0.6961,59.8,0.0,none,sembench-measured-49884
+stretto,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct | target 0.6,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,47.2,199,0,17309,714,2.0572,1.274,0.9184,59.8,0.0,none,sembench-measured-49884
+stretto_abacus,qwen2.5:32b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:32b-instruct | target 0.6,Q4,1,success,True,,relative_error,0.3571428656578064,0.6428571343421936,39.0,199,0,17309,714,1.9615,1.3141,0.7584,59.8,0.0,none,sembench-measured-49884
+caesura,qwen2.5:3b-instruct,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,223.1,15,0,27816,6410,5.2125,1.5146,5.7505,59.7,0.0,none,sembench-measured-49857
+lotus,qwen2.5:3b-instruct,Q1,1,success,True,,f1,1.0,1.0,366.6,1000,0,130490,86457,16.3781,10.3012,4.8847,59.7,0.0,none,sembench-measured-49857
+palimpzest,qwen2.5:3b-instruct,Q1,1,,False,timeout; no metrics,,,,3600.0,1000,0,326079,96904,71.7859,12.1132,28.5427,59.7,0.0,none,sembench-measured-49857
+stretto,qwen2.5:3b-instruct,Q1,1,failed,True,engine: KeyError: 'reviews',f1,0.0,0.0,15.9,3,0,3436,491,0.3886,0.1252,0.1402,59.7,0.0,none,sembench-measured-49857
+stretto_abacus,qwen2.5:3b-instruct,Q1,1,failed,True,engine: ReasoningDeadEnd: ReasoningDeadEnd: Could not configure step 0 after three attempts: Mistake: Invalid configuration: use fully qualified table.column placeholders and the listed parameter choices.,f1,0.0,0.0,14.3,3,0,3425,467,0.3384,0.1018,0.1209,59.7,0.0,none,sembench-measured-49857
+thalamusdb,qwen2.5:3b-instruct,Q1,1,success,True,,f1,0.8000000000000002,0.8000000000000002,6.4,20,0,1714,20,0.1025,0.0,0.0892,59.7,0.0,none,sembench-measured-49857
+caesura,qwen2.5:3b-instruct,Q2,1,success,True,,f1,0.0,0.0,89.8,12,0,15099,7842,3.2247,1.7357,0.5764,59.7,0.0,none,sembench-measured-49857
+lotus,qwen2.5:3b-instruct,Q2,1,success,True,,f1,0.20000000000000004,0.20000000000000004,57.4,120,0,14926,10487,2.1848,1.2331,0.7107,59.7,0.0,none,sembench-measured-49857
+palimpzest,qwen2.5:3b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,30.1,47,0,14973,4329,1.012,0.5131,0.3303,59.7,0.0,none,sembench-measured-49857
+stretto,qwen2.5:3b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,32.4,182,0,16255,480,0.7338,0.1961,0.7926,59.7,0.0,none,sembench-measured-49857
+stretto_abacus,qwen2.5:3b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,26.7,182,0,16255,480,0.6091,0.1663,0.5435,59.7,0.0,none,sembench-measured-49857
+thalamusdb,qwen2.5:3b-instruct,Q2,1,success,True,,f1,0.4000000000000001,0.4000000000000001,5.8,20,0,1670,20,0.1139,0.0177,0.0977,59.7,0.0,none,sembench-measured-49857
+caesura,qwen2.5:3b-instruct,Q4,1,success,True,,relative_error,1.0,0.0,120.5,19,0,33986,11014,4.5171,2.5191,0.7159,59.7,0.0,none,sembench-measured-49857
+lotus,qwen2.5:3b-instruct,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,55.3,120,0,14686,9871,2.0805,1.1634,0.6424,59.7,0.0,none,sembench-measured-49857
+palimpzest,qwen2.5:3b-instruct,Q4,1,success,True,,relative_error,1.0,0.0,82.7,120,0,74325,17925,3.4971,2.1256,0.9223,59.7,0.0,none,sembench-measured-49857
+stretto,qwen2.5:3b-instruct,Q4,1,success,True,,relative_error,4.257475261226773e-09,0.9999999957425247,31.5,181,0,15774,431,0.6841,0.1621,0.7172,59.7,0.0,none,sembench-measured-49857
+stretto_abacus,qwen2.5:3b-instruct,Q4,1,success,True,,relative_error,0.0714285746216774,0.9285714253783226,29.4,181,0,15774,431,0.6474,0.1595,0.2184,59.7,0.0,none,sembench-measured-49857
+thalamusdb,qwen2.5:3b-instruct,Q4,1,success,True,,relative_error,2.4313955293564504e-08,0.9999999756860447,13.6,119,0,10059,119,0.3141,0.0884,0.3396,59.7,0.0,none,sembench-measured-49857
+caesura,qwen2.5:3b-instruct,Q5,1,success,True,,f1,0.0,0.0,89.0,12,0,15543,7756,3.2252,1.7506,0.5837,59.7,0.0,none,sembench-measured-49857
+lotus,qwen2.5:3b-instruct,Q5,1,,False,timeout; no metrics,,,,3600.0,7593,0,1505330,926622,167.7127,108.0399,44.2063,59.7,0.0,none,sembench-measured-49857
+palimpzest,qwen2.5:3b-instruct,Q5,1,success,True,,f1,0.4000000000000001,0.4000000000000001,65.1,100,0,46500,14071,2.8094,1.7304,0.749,59.7,0.0,none,sembench-measured-49857
+stretto,qwen2.5:3b-instruct,Q5,1,success,True,,f1,0.0,0.0,2297.6,8108,0,604121,22643,41.9216,3.8375,26.6646,59.7,0.0,none,sembench-measured-49857
+stretto_abacus,qwen2.5:3b-instruct,Q5,1,success,True,,f1,0.0,0.0,2116.8,7925,0,588871,22059,38.7501,3.6629,21.3633,59.7,0.0,none,sembench-measured-49857
+thalamusdb,qwen2.5:3b-instruct,Q5,1,success,True,,f1,0.5,0.5,10.4,6,0,5817,86,0.2447,0.0722,0.0995,59.7,0.0,none,sembench-measured-49857
+caesura,qwen2.5:7b-instruct,Q1,1,success,True,,f1,0.0,0.0,114.5,14,0,21891,7836,5.501,3.6038,1.2013,59.6,0.0,none,sembench-measured-49820
+caesura,qwen2.5:7b-instruct,Q1,2,success,True,,f1,0.0,0.0,194.5,17,0,29413,8538,7.596,4.2076,2.7139,62.7,0.0,none,sembench-measured-49915
+caesura,qwen2.5:7b-instruct,Q1,3,success,True,,f1,0.0,0.0,105.5,12,0,16478,6988,5.07,3.2448,0.3565,62.3,0.0,none,sembench-measured-49916
+lotus,qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,194.8,1000,0,130490,30858,11.0618,7.8347,6.0071,59.6,0.0,none,sembench-measured-49820
+lotus,qwen2.5:7b-instruct,Q1,2,success,True,,f1,1.0,1.0,197.2,1000,0,130490,31510,12.0118,8.5763,3.4714,62.7,0.0,none,sembench-measured-49915
+lotus,qwen2.5:7b-instruct,Q1,3,success,True,,f1,1.0,1.0,204.4,1000,0,130490,31496,11.8902,8.3547,3.639,62.3,0.0,none,sembench-measured-49916
+palimpzest,qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,44.0,80,0,25918,6265,2.1963,1.4596,0.8511,60.3,0.0,none,sembench-measured-49828
+palimpzest,qwen2.5:7b-instruct,Q1,2,success,True,,f1,1.0,1.0,35.6,60,0,19346,4411,2.3004,1.6798,0.4032,62.7,0.0,none,sembench-measured-49915
+palimpzest,qwen2.5:7b-instruct,Q1,3,success,False,timeout,f1,0.5263157894736842,0.5263157894736842,3600.0,1000,0,326079,78602,81.7586,19.476,21.555,62.3,0.0,none,sembench-measured-49916
+stretto,qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,109.6,1158,0,103443,2808,3.6469,1.8192,4.3206,60.1,0.0,none,sembench-measured-49824
+stretto,qwen2.5:7b-instruct,Q1,2,success,True,,f1,1.0,1.0,116.3,1158,0,105755,2918,4.1201,2.0937,2.3772,62.7,0.0,none,sembench-measured-49915
+stretto,qwen2.5:7b-instruct,Q1,3,success,True,,f1,1.0,1.0,113.4,1158,0,103443,2810,3.8596,1.8984,3.0526,62.3,0.0,none,sembench-measured-49916
+stretto_abacus,qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,100.6,1158,0,103443,2808,3.5258,1.8455,3.9843,60.1,0.0,none,sembench-measured-49833
+stretto_abacus,qwen2.5:7b-instruct,Q1,2,success,True,,f1,1.0,1.0,102.9,1158,0,103443,2923,3.6855,1.8927,2.133,62.7,0.0,none,sembench-measured-49915
+stretto_abacus,qwen2.5:7b-instruct,Q1,3,success,True,,f1,1.0,1.0,106.1,1158,0,103443,2802,3.5737,1.7385,2.4725,62.3,0.0,none,sembench-measured-49916
+thalamusdb,qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,6.2,20,0,1714,20,0.1261,0.0242,0.1546,59.6,0.0,none,sembench-measured-49820
+thalamusdb,qwen2.5:7b-instruct,Q1,2,success,True,,f1,1.0,1.0,6.0,20,0,1714,20,0.1397,0.0344,0.0964,62.7,0.0,none,sembench-measured-49915
+thalamusdb,qwen2.5:7b-instruct,Q1,3,success,True,,f1,1.0,1.0,6.2,20,0,1714,20,0.1365,0.0294,0.1286,62.3,0.0,none,sembench-measured-49916
+caesura,qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.0,0.0,117.1,15,0,25063,8343,5.7369,3.7966,1.0836,59.6,0.0,none,sembench-measured-49820
+lotus,qwen2.5:7b-instruct,Q2,1,success,True,,f1,1.0,1.0,30.0,120,0,14926,1871,1.066,0.5684,0.8638,59.6,0.0,none,sembench-measured-49820
+palimpzest,qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.8000000000000002,0.8000000000000002,56.0,104,0,33224,7228,2.9204,1.9817,1.0676,60.3,0.0,none,sembench-measured-49828
+stretto,qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.888888888888889,0.888888888888889,36.4,182,0,16255,949,1.1042,0.5018,0.6853,59.6,0.0,none,sembench-measured-49848
+stretto_abacus,qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.888888888888889,0.888888888888889,31.1,182,0,16255,951,1.001,0.4857,0.6066,59.6,0.0,none,sembench-measured-49848
+thalamusdb,qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.6,0.6,7.6,40,0,3344,40,0.173,0.0468,0.2131,59.6,0.0,none,sembench-measured-49820
+caesura,qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,1.0,0.0,146.3,23,0,41866,10844,7.4197,4.9966,1.5804,59.6,0.0,none,sembench-measured-49820
+lotus,qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,0.5,0.5,30.0,120,0,14686,1801,1.0383,0.5408,0.8372,59.6,0.0,none,sembench-measured-49820
+palimpzest,qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,1.0,0.0,56.1,120,0,74325,8552,2.9768,2.0367,1.1344,60.3,0.0,none,sembench-measured-49828
+stretto,qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,33.9,181,0,15774,750,0.9619,0.4003,0.7297,59.6,0.0,none,sembench-measured-49848
+stretto_abacus,qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,28.8,181,0,15774,750,0.8815,0.4052,0.5823,59.6,0.0,none,sembench-measured-49848
+thalamusdb,qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,0.2857142686843872,0.7142857313156128,13.8,119,0,10059,119,0.3571,0.128,0.4602,59.6,0.0,none,sembench-measured-49820
+caesura,qwen2.5:7b-instruct,Q5,1,success,True,,f1,0.0,0.0,190.3,17,0,27880,8636,7.0639,3.9109,4.6512,59.6,0.0,none,sembench-measured-49820
+caesura,qwen2.5:7b-instruct,Q5,2,success,True,,f1,0.0,0.0,126.0,17,0,29174,9370,6.7852,4.5895,0.5629,62.7,0.0,none,sembench-measured-49915
+caesura,qwen2.5:7b-instruct,Q5,3,success,True,,f1,0.0,0.0,190.2,19,0,35223,9273,7.6436,4.3537,2.1652,62.3,0.0,none,sembench-measured-49916
+lotus,qwen2.5:7b-instruct,Q5,1,,False,timeout; no metrics,,,,3600.0,7601,0,1506627,740770,227.6697,168.0362,70.1045,59.6,0.0,none,sembench-measured-49820
+lotus,qwen2.5:7b-instruct,Q5,2,,False,timeout; no metrics,,,,3600.0,7688,0,1525202,738212,240.0741,177.3444,40.8844,62.7,0.0,none,sembench-measured-49915
+lotus,qwen2.5:7b-instruct,Q5,3,,False,timeout; no metrics,,,,3600.0,7355,0,1460283,714874,227.6416,165.359,41.5166,62.3,0.0,none,sembench-measured-49916
+palimpzest,qwen2.5:7b-instruct,Q5,1,success,True,,f1,0.6,0.6,57.3,100,0,46500,8915,3.1249,2.1654,1.1035,60.3,0.0,none,sembench-measured-49828
+palimpzest,qwen2.5:7b-instruct,Q5,2,success,True,,f1,0.5263157894736842,0.5263157894736842,56.1,100,0,46500,8916,3.3569,2.379,0.7486,62.7,0.0,none,sembench-measured-49915
+palimpzest,qwen2.5:7b-instruct,Q5,3,success,True,,f1,0.3157894736842105,0.3157894736842105,60.0,100,0,46500,9143,3.2806,2.2428,0.523,62.3,0.0,none,sembench-measured-49916
+stretto,qwen2.5:7b-instruct,Q5,1,success,True,,f1,0.0,0.0,1448.8,5451,0,340934,13664,28.793,4.7902,20.9351,59.6,0.0,none,sembench-measured-49848
+stretto,qwen2.5:7b-instruct,Q5,2,success,True,,f1,0.0,0.0,1547.0,5688,0,354494,14126,32.4982,5.5422,15.4051,62.7,0.0,none,sembench-measured-49915
+stretto,qwen2.5:7b-instruct,Q5,3,success,True,,f1,0.0,0.0,1447.5,5263,0,331346,13205,29.8393,4.7961,14.5661,62.3,0.0,none,sembench-measured-49916
+stretto_abacus,qwen2.5:7b-instruct,Q5,1,success,True,,f1,0.0,0.0,1303.0,5416,0,339149,13558,26.282,4.6949,17.3989,59.6,0.0,none,sembench-measured-49848
+stretto_abacus,qwen2.5:7b-instruct,Q5,2,success,True,,f1,0.0,0.0,1323.0,5311,0,352959,13265,27.7904,4.7369,11.5047,62.7,0.0,none,sembench-measured-49915
+stretto_abacus,qwen2.5:7b-instruct,Q5,3,success,True,,f1,0.0,0.0,1356.5,5249,0,330632,13237,28.0828,4.614,10.1599,62.3,0.0,none,sembench-measured-49916
+thalamusdb,qwen2.5:7b-instruct,Q5,1,success,True,,f1,0.6,0.6,123.2,135,0,116045,1831,3.871,1.8296,1.7697,59.6,0.0,none,sembench-measured-49820
+thalamusdb,qwen2.5:7b-instruct,Q5,2,success,True,1/136 LLM calls failed,f1,0.6,0.6,722.3,136,1,116045,1711,52.3058,39.7679,3.6511,62.5,0.0,none,sembench-measured-49918
+thalamusdb,qwen2.5:7b-instruct,Q5,3,success,True,,f1,0.5,0.5,108.0,106,0,91447,1400,3.4538,1.5851,0.583,62.3,0.0,none,sembench-measured-49916
+stretto,qwen2.5:7b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,127.2,1308,0,116517,3112,4.0437,1.9038,3.6451,60.6,0.0,none,sembench-measured-49881
+stretto_abacus,qwen2.5:7b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:7b-instruct,Q1,1,success,True,,f1,1.0,1.0,109.6,1308,0,116517,3110,3.6239,1.7801,3.0996,60.6,0.0,none,sembench-measured-49881
+stretto,qwen2.5:7b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.888888888888889,0.888888888888889,40.4,200,0,17790,992,1.1768,0.4978,0.9885,60.6,0.0,none,sembench-measured-49881
+stretto_abacus,qwen2.5:7b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:7b-instruct,Q2,1,success,True,,f1,0.888888888888889,0.888888888888889,32.0,200,0,17790,904,0.9822,0.4432,0.7843,60.6,0.0,none,sembench-measured-49881
+stretto,qwen2.5:7b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,37.3,199,0,17309,705,0.9862,0.3581,0.7853,60.6,0.0,none,sembench-measured-49881
+stretto_abacus,qwen2.5:7b-instruct | operators: qwen2.5:3b-instruct + qwen2.5:7b-instruct,Q4,1,success,True,,relative_error,0.7142857313156128,0.2857142686843872,30.1,199,0,17309,705,0.8668,0.3604,0.6964,60.6,0.0,none,sembench-measured-49881
