@@ -22,6 +22,15 @@ built in: adding another workload means supplying its data, ground truth and eva
 A **GreenQuery dashboard** lets you explore the results, launch new runs on the GPU cluster, and play the
 **GreenQuery Challenge**: get a correct answer with less energy than the Stretto and Abacus optimizers.
 
+## Demo video
+
+<p align="center">
+  <a href="https://youtu.be/99yRB77Yres">
+    <img src="images/demo_video_thumbnail.jpg" alt="GreenQuery demo video on YouTube" width="720">
+  </a>
+  <br><sub>▶ <a href="https://youtu.be/99yRB77Yres">Watch the 5-minute walkthrough on YouTube</a>: the GreenQuery Challenge, then every page of the dashboard.</sub>
+</p>
+
 ---
 
 ## Contents
