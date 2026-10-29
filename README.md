@@ -4,16 +4,23 @@
 
 <p align="center"><b>Measure the quality, energy, runtime and cost of LLM-powered semantic query engines.</b></p>
 
-GreenQuery runs semantic query engines (Stretto, Abacus, LOTUS, Palimpzest, ThalamusDB, CAESURA) on the same
-SemBench queries, the same data, the same LLM and the same GPU, without modifying any engine. A logging proxy
-records every LLM call, and an energy tracer samples the GPU (NVML) and CPU (RAPL) every 100 ms, so every
-query gets **measured** energy, quality, runtime, tokens and API cost. A Next.js dashboard lets you explore
-the results, start new runs on a GPU cluster, and play the **GreenQuery Challenge**: answer a query correctly
-with the least energy and beat the built-in optimizers.
+GreenQuery measures what an answer from an LLM-powered semantic query engine really costs. You choose a
+**workload** (queries, data, ground truth), an **engine** and an **LLM**. GreenQuery runs the query on a dedicated
+GPU node and reports for each query how good the answer is and what it took to get it: energy, runtime, LLM calls,
+tokens and API cost. Engines run unmodified and under identical conditions, so a difference in energy comes from
+the engine or the model, not from the setup.
 
-> In 441 runs over 6 engines and 16 LLMs, correct answers to the same query differ by up to 513× in energy.
-> Switching the engine at a fixed model changes energy by a median of 13×, while growing the model from 3B to 32B
-> changes it by 2.7×. Energy cannot be read off LLM calls, tokens or dollars. Details: [`docs/EXPERIMENTAL_SETUP.md`](docs/EXPERIMENTAL_SETUP.md).
+Two independent traces are recorded during every run. A logging proxy records each LLM call the engine makes, and
+an energy tracer reads the GPU (NVML) and CPU (RAPL) energy counters every 100 ms. Aligning the two gives energy
+per query and per LLM call. Local models get **measured** energy. API models get an EcoLogits **estimate**, which
+is always labelled as such and never mixed with measured energy.
+
+**Supported:** the engines Stretto, Abacus, LOTUS, Palimpzest, ThalamusDB and CAESURA, local LLMs through
+Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload. The workload is a parameter, not
+built in: adding another workload means supplying its data, ground truth and evaluator, plus one query program per engine.
+
+A **GreenQuery dashboard** lets you explore the results, launch new runs on the GPU cluster, and play the
+**GreenQuery Challenge**: get a correct answer with less energy than the Stretto and Abacus optimizers.
 
 ---
 
@@ -33,6 +40,35 @@ with the least energy and beat the built-in optimizers.
 ---
 
 ## How it works
+
+<p align="center"><img src="images/greenquery_architecture.png" alt="GreenQuery architecture" width="820"></p>
+
+GreenQuery treats one benchmark run as a controlled experiment. Each step in the figure, from top to bottom:
+
+1. **Experiment specification.** A run fixes four variables: the **workload** (queries, data and ground
+   truth), the **engine** (a semantic query engine or optimizer), the **model** (one or more LLMs and how
+   they are served) and the **hardware** (an exclusive GPU node). Change one variable and keep the others fixed,
+   and any difference in energy, quality or cost comes from that variable.
+2. **GreenQuery orchestrator.** It deploys the model, runs the engine on the workload and enforces the conditions
+   that make runs comparable: an isolated node, repetitions, per-query timeouts and a cost budget for API models.
+3. **Execution under measurement.** The engine plans and executes the query as usual. Every LLM call it makes
+   goes through the **model interface** to **LLM inference**, either local (Ollama on the GPU) or a remote API.
+   GreenQuery records two independent channels while this happens:
+   - the **logical channel**, a trace of every LLM call: start and end time, prompt and completion tokens, cost;
+   - the **physical channel**, the node's energy: GPU energy (including idle power) and the job's share of CPU
+     package energy.
+4. **Attribution and validation.** The two traces are aligned in time. This gives energy per query, per LLM call
+   and per phase (time inside vs. outside LLM calls). The workload's evaluator scores each answer against the
+   ground truth. Carbon is energy × grid factor.
+5. **Result record and provenance.** Each query gives one record: energy, quality, latency, cost and carbon,
+   labelled **measured** or **estimated**, with the run and repetition it belongs to. For API models the
+   physical channel isn't available, so their energy is an EcoLogits estimate and is never pooled with measured
+   energy.
+6. **Analysis.** The records drive comparisons, quality-vs-energy Pareto fronts and the dashboard.
+
+### Deployment on the DGX
+
+The same pipeline, as it runs on the cluster:
 
 ```
  Dashboard (Next.js, :3100) ──HTTP/SSE──► GreenQuery server (FastAPI, :8765 on the DGX login node)
@@ -59,15 +95,15 @@ with the least energy and beat the built-in optimizers.
 - **Measured energy** (local models): `E = E_GPU (incl. idle) + E_CPU-package × job's share of CPU time`.
 - **API models** (OpenAI, Claude via OpenRouter): inference runs at the provider, so energy is **estimated** with
   EcoLogits and always labelled as such. It is never mixed with measured energy. API cost is the billed cost.
-- Quality is computed by SemBench's own evaluator. An answer is *correct* if quality ≥ 0.8.
+- Quality is computed by the workload's own evaluator (SemBench's for the Movie queries). An answer is *correct* if quality ≥ 0.8.
 
 ---
 
 ## What the dashboard offers
 
-The dashboard works in two modes. **Recorded**: it ships a snapshot of all measured runs and works offline,
-with no server. **Live**: connected to the GreenQuery server, it starts real runs on the GPU cluster and streams
-their progress.
+The dashboard works in two modes. **Live**: connected to the GreenQuery server, it starts real runs on the GPU cluster and streams
+their progress. **Recorded**: it ships a snapshot of all measured runs and works offline,
+with no server.
 
 ### Overview: the headline in one screen
 Key findings (energy spread for the same answer, optimizers beaten, correct answers, API cost) and a
@@ -76,7 +112,7 @@ provenance (measured vs. estimated) and per-dataset summaries.
 
 ![Overview](images/screen_overview.png)
 
-### Challenge: play the query optimizer
+### GreenQuery Challenge: play the query optimizer
 Pick a query, an engine and a model, and try to answer correctly with the least energy. Your run races the
 built-in optimizers (Stretto, Abacus) on a live power trace with one tick per LLM call. Correct answers enter a
 shared leaderboard.
@@ -145,7 +181,6 @@ medians.
 | Live runs with measured energy | A **SLURM cluster with NVIDIA GPUs** (we use a DGX A100, one 40 GB A100 per job), NVML access (`nvidia-smi`), RAPL readable through unprivileged `perf` (no root needed), [Ollama](https://ollama.com) binary and a model store |
 | SemBench engines | The vendored SemBench in `third_party/sembench` with one virtual environment per engine in `third_party/sembench/.venvs/<system>` (see [`third_party/sembench/GREENQUERY.md`](third_party/sembench/GREENQUERY.md)) |
 | API models (optional) | `OPENAI_API_KEY` and/or `OPENROUTER_API_KEY` in a repo-root `.env` (never committed) |
-| Paper figures (optional) | `uv run --with matplotlib`, `--with ecologits==0.11.1` for API energy estimates |
 
 Without SLURM the server runs jobs as local subprocesses (`GREENQUERY_EXECUTOR=local`). In that mode only
 Stretto runs. The SemBench engines and measured energy need the cluster.
@@ -186,10 +221,6 @@ cd greenQueryLab
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements.txt -e . -r greenquery_server/requirements.txt
 ```
-
-The full Stretto setup (PyTorch, kvpress, local model servers for the original Stretto experiments) is
-described in [`docs/STRETTO_README.md`](docs/STRETTO_README.md). It is not needed for the SemBench runs, which
-serve models through Ollama.
 
 ### 2. Secrets (`.env` in the repo root, `chmod 600`)
 
@@ -412,8 +443,6 @@ third_party/sembench/     vendored SemBench (pinned commit c556cae, changes mark
 config/models.yaml        model registry (providers, prices, energy source)
 reasondb/                 Stretto / ReasonDB engine
 reports/                  combined results (CSV/Markdown), EcoLogits estimates
-paper/edbt2027-demo/      EDBT 2027 demo paper, figures, tables, screenshots
-docs/                     setup, evaluation plan, experimental setup, known issues
 ```
 
 ---
