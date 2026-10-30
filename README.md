@@ -16,7 +16,7 @@ per query and per LLM call. Local models get **measured** energy. API models get
 is always labelled as such and never mixed with measured energy.
 
 **Supported:** the engines Stretto, Abacus, LOTUS, Palimpzest, ThalamusDB and CAESURA, local LLMs through
-Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload. The workload is a parameter, not
+Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload but it is not limited these optimizers/models/workloads. The workload is a parameter, not
 built in: adding another workload means supplying its data, ground truth and evaluator, plus one query program per engine.
 
 A **GreenQuery dashboard** lets you explore the results, launch new runs on the GPU cluster, and play the
