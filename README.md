@@ -29,10 +29,6 @@ built in: adding another workload means supplying its data, ground truth and eva
 | OpenAI | GPT-4o mini, GPT-4.1, GPT-5 mini | `gpt-4o-mini`, `gpt-4.1`, `gpt-5-mini` | OpenAI API | estimated (EcoLogits) |
 | Anthropic | Claude Haiku 5.5, Sonnet 5.5, Opus 5.5 | `anthropic/claude-haiku-5.5`, `anthropic/claude-sonnet-5.5`, `anthropic/claude-opus-5.5` | OpenRouter API | estimated (EcoLogits) |
 
-The 32B and 27B models run with an 8,192-token context so that model and KV cache fit on one GPU. For the
-multi-model optimizer runs (Stretto vs. Abacus choosing per operator), the model pairs are Qwen 2.5 3B + 7B,
-Qwen 2.5 3B + 32B, Gemma 3 4B + 27B, and Llama 3.2 3B + 3.1 8B. 
-
 **Any other model can be added from the dashboard ("bring your own model").** Type its name on the Run Benchmark
 page and pick where it comes from:
 
