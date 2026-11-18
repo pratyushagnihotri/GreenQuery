@@ -48,8 +48,7 @@ page and pick where it comes from:
 | OpenAI API | `gpt-4.1-mini` (enter its prices) | through the logging proxy, with the run's spending cap | not measured (runs at the provider) |
 | OpenRouter API (Claude, Gemini, Llama, Mistral, ...) | `anthropic/claude-haiku-4.5` (prices fetched) | through the logging proxy, with the run's spending cap | not measured (runs at the provider) |
 
-GreenQuery checks that the model exists, and that a local model fits on one GPU, before adding it. The Challenge
-page offers the two local sources, because its leaderboard ranks measured energy. Models can also be added by hand
+GreenQuery checks that the model exists, and that a local model fits on one GPU, before adding it. Models can also be added by hand
 in [`config/models.yaml`](config/models.yaml), e.g. a vLLM server (`openai_compatible` with its URL).
 
 A **GreenQuery dashboard** lets you explore the results, launch new runs on the GPU cluster, and play the
