@@ -19,6 +19,39 @@ is always labelled as such and never mixed with measured energy.
 Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload but it is not limited these optimizers/models/workloads. The workload is a parameter, not
 built in: adding another workload means supplying its data, ground truth and evaluator, plus one query program per engine.
 
+**Supported today:** the engines Stretto, Abacus (re-implementation in Stretto), LOTUS, Palimpzest, ThalamusDB and CAESURA, local LLMs through
+Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload. The workload is a parameter, not
+built in: adding another workload means supplying its data, ground truth and evaluator, plus one query program
+per engine.
+
+**LLMs evaluated so far (16):** 10 local models with measured energy and 6 API models with estimated energy.
+
+| Family | Model | Identifier | Served by | Energy |
+|---|---|---|---|---|
+| Qwen 2.5 | 3B, 7B, 14B, 32B (Instruct) | `qwen2.5:3b-instruct`, `qwen2.5:7b-instruct`, `qwen2.5:14b-instruct`, `qwen2.5:32b-instruct` | Ollama (4-bit), 1× A100 40 GB | measured |
+| Llama | 3.2 1B, 3.2 3B, 3.1 8B | `llama3.2:1b`, `llama3.2:3b`, `llama3.1:8b` | Ollama (4-bit), 1× A100 40 GB | measured |
+| Gemma 3 | 4B, 12B, 27B | `gemma3:4b`, `gemma3:12b`, `gemma3:27b` | Ollama (4-bit), 1× A100 40 GB | measured |
+| OpenAI | GPT-4o mini, GPT-4.1, GPT-5 mini | `gpt-4o-mini`, `gpt-4.1`, `gpt-5-mini` | OpenAI API | estimated (EcoLogits) |
+| Anthropic | Claude Haiku 5.5, Sonnet 5.5, Opus 5.5 | `anthropic/claude-haiku-5.5`, `anthropic/claude-sonnet-5.5`, `anthropic/claude-opus-5.5` | OpenRouter API | estimated (EcoLogits) |
+
+The 32B and 27B models run with an 8,192-token context so that model and KV cache fit on one GPU. For the
+multi-model optimizer runs (Stretto vs. Abacus choosing per operator), the model pairs are Qwen 2.5 3B + 7B,
+Qwen 2.5 3B + 32B, Gemma 3 4B + 27B, and Llama 3.2 3B + 3.1 8B. 
+
+**Any other model can be added from the dashboard ("bring your own model").** Type its name on the Run Benchmark
+page and pick where it comes from:
+
+| Source | Example | Runs | Energy |
+|---|---|---|---|
+| Ollama library | `phi3:mini` | downloaded by its first run, on one A100 | measured |
+| Hugging Face (any GGUF repository) | `bartowski/Phi-3.5-mini-instruct-GGUF:Q4_K_M` | downloaded by its first run, on one A100 | measured |
+| OpenAI API | `gpt-4.1-mini` (enter its prices) | through the logging proxy, with the run's spending cap | not measured (runs at the provider) |
+| OpenRouter API (Claude, Gemini, Llama, Mistral, ...) | `anthropic/claude-haiku-4.5` (prices fetched) | through the logging proxy, with the run's spending cap | not measured (runs at the provider) |
+
+GreenQuery checks that the model exists, and that a local model fits on one GPU, before adding it. The Challenge
+page offers the two local sources, because its leaderboard ranks measured energy. Models can also be added by hand
+in [`config/models.yaml`](config/models.yaml), e.g. a vLLM server (`openai_compatible` with its URL).
+
 A **GreenQuery dashboard** lets you explore the results, launch new runs on the GPU cluster, and play the
 **GreenQuery Challenge**: get a correct answer with less energy than the Stretto and Abacus optimizers.
 
@@ -127,7 +160,8 @@ built-in optimizers (Stretto, Abacus) on a live power trace with one tick per LL
 shared leaderboard.
 - **Recorded mode** replays measured runs (accelerated) and works offline.
 - **Live on the GPU** runs the query on the DGX with measured energy.
-- **Bring your own model**: add any Ollama model (e.g. `phi3:mini`). The next run downloads it.
+- **Bring your own model**: add any Ollama model (e.g. `phi3:mini`) or GGUF model from Hugging Face. The next
+  run downloads it.
 - **Play on your phone**: the QR code opens the Challenge on phones in the same network (or on the public
   deployment, see `NEXT_PUBLIC_PLAY_URL`).
 
@@ -143,7 +177,8 @@ differs 59× between systems", energy spent on wrong answers).
 
 ### Run Benchmark: start runs from the browser
 Choose system, workload, query, model, repetitions, cache mode and, for Stretto/Abacus, single- or multi-model
-operators. You get a cost estimate before starting (runs above the cost limit are refused), then live job cards
+operators. **Bring your own model** adds any Ollama, Hugging Face (GGUF), OpenAI or OpenRouter model to the
+model list. You get a cost estimate before starting (runs above the cost limit are refused), then live job cards
 with energy, LLM calls, runtime and a power sparkline. **Inspect** opens the full trace of a run.
 
 ![Run Benchmark](images/screen_run_benchmark.png)

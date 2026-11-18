@@ -52,6 +52,8 @@ class ModelSpec:
     rpm: int
     tpm: int
     gpus: int = 1
+    # openai_compatible endpoint hosted elsewhere (e.g. OpenRouter): an online API, not a local GPU server
+    remote: bool = False
 
     @property
     def credential_available(self) -> bool:
@@ -63,7 +65,7 @@ class ModelSpec:
 
     @property
     def deployment(self) -> str:
-        return "Local server" if self.provider == "openai_compatible" else "Online API"
+        return "Local server" if self.provider == "openai_compatible" and not self.remote else "Online API"
 
     def characteristics(self) -> LLMCharacteristics:
         return LLMCharacteristics(
@@ -118,6 +120,7 @@ def _spec_from_entry(key: str, entry: Dict[str, Any]) -> ModelSpec:
         rpm=int(entry.get("rpm", 500)),
         tpm=int(entry.get("tpm", 200_000)),
         gpus=int(entry.get("gpus", 1)),
+        remote=bool(entry.get("remote", False)),
     )
 
 

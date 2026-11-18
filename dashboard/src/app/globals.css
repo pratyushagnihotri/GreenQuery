@@ -835,6 +835,16 @@ button { cursor: pointer; }
 .run-table .table-head.run-row { font-size: 10px; line-height: 1.3; padding-top: 9px; padding-bottom: 9px; }
 .run-table .table-row.run-row { font-size: 12px; }
 .run-operators { display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 14px; margin-top: 12px; align-items: start; }
+.run-add { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: end; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #284735; }
+.run-add label { display: grid; gap: 5px; color: #8fa396; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.run-add label:nth-child(2) { flex: 1 1 260px; }
+.run-add select, .run-add input { height: 32px; padding: 0 9px; color: #dceade; background: #0a120e; border: 1px solid #284735; border-radius: 4px; font-size: 12px; text-transform: none; letter-spacing: 0; }
+.run-add input[type="number"] { width: 110px; }
+.run-add .secondary-action { height: 32px; }
+.run-add small { flex: 1 0 100%; color: #8fa396; font-size: 11px; }
+.app-shell[data-theme="light"] .run-add select, .app-shell[data-theme="light"] .run-add input { color: #18231c; background: #ffffff; border-color: #c9d8cc; }
+.app-shell[data-theme="light"] .run-add { border-top-color: #c9d8cc; }
+@media (max-width: 640px) { .ch-add { grid-template-columns: 1fr; } }
 .run-mode { display: grid; gap: 5px; color: #8fa396; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
 .run-mode select { height: 32px; padding: 0 9px; color: #dceade; background: #0a120e; border: 1px solid #284735; border-radius: 4px; font-size: 12px; text-transform: none; letter-spacing: 0; }
 .run-operator-list { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; color: #b5c5b8; font-size: 12px; }
@@ -995,9 +1005,10 @@ div.run-row.table-row:focus-visible { outline: 2px solid #9bdc55; outline-offset
 .ri-row span { overflow-wrap: anywhere; }
 .ch-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .ch-actions .secondary-action { margin-top: 0; }
-.ch-add { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--ch-line); }
+.ch-add { display: grid; grid-template-columns: minmax(150px, auto) 1fr auto; gap: 12px; align-items: end; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--ch-line); }
 .ch-add label { display: grid; gap: 5px; color: var(--ch-muted); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
 .ch-add input { height: 36px; padding: 0 10px; color: var(--ch-strong); background: var(--ch-bg); border: 1px solid var(--ch-line); border-radius: 6px; font: inherit; font-size: 13px; text-transform: none; letter-spacing: normal; }
+.ch-add select { height: 36px; padding: 0 8px; color: var(--ch-strong); background: var(--ch-bg); border: 1px solid var(--ch-line); border-radius: 6px; font: inherit; font-size: 13px; text-transform: none; letter-spacing: normal; }
 .ch-add input:focus { outline: 2px solid var(--ch-accent); outline-offset: -1px; }
 .ch-add .secondary-action { height: 36px; justify-content: center; }
 /* Challenge race lanes, energy equivalents, podium */

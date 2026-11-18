@@ -1,15 +1,17 @@
 "use client";
 
-import { Check, CircleStop, LayoutGrid, List, LoaderCircle, Play, RefreshCw, X } from "lucide-react";
+import { Check, CircleStop, LayoutGrid, List, LoaderCircle, Play, Plus, RefreshCw, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   API_BASE,
   ApiError,
+  addCustomModel,
   cancelRun,
   estimateRun,
   fetchCatalog,
   fetchJobs,
   fetchLive,
+  MODEL_SOURCES,
   startRun,
   subscribeToJob,
   type Catalog,
@@ -17,6 +19,7 @@ import {
   type Job,
   type LiveProgress,
   type ModelInfo,
+  type ModelSource,
   type RunRequest,
 } from "@/lib/api";
 import { queryLabel } from "@/data/benchmarks";
@@ -87,6 +90,7 @@ function energyNote(model: ModelInfo | undefined) {
   if (!model) return "";
   if (model.energy === "ecologits") return "Energy and CO₂ estimated by EcoLogits for this model.";
   if (model.energy === "ecologits_proxy") return `EcoLogits has no profile for this model yet; energy is estimated with ${model.ecologits_model} as a labelled proxy.`;
+  if (model.deployment === "Online API") return "Online API: inference runs at the provider, so energy is not measured; tokens, cost and quality are recorded.";
   return "No energy meter for this server: energy and CO₂ will be recorded as not measured.";
 }
 
@@ -105,6 +109,12 @@ export function RunBenchmark({ onRecords, onShowResults }: { onRecords: () => vo
   const [progress, setProgress] = useState<Record<string, LiveProgress>>({});
   const [layout, setLayout] = useState<"cards" | "table">("cards");
   const [inspect, setInspect] = useState<Job | null>(null);
+  // "Bring your own model": any Ollama, Hugging Face (GGUF), OpenAI or OpenRouter model.
+  const [addSource, setAddSource] = useState<ModelSource>("ollama");
+  const [addName, setAddName] = useState("");
+  const [addPrices, setAddPrices] = useState({ price_in: "", price_out: "" });
+  const [adding, setAdding] = useState(false);
+  const [addNote, setAddNote] = useState<string | null>(null);
   const finished = useRef(new Set<string>());
   const logEnd = useRef<HTMLDivElement>(null);
 
@@ -120,6 +130,27 @@ export function RunBenchmark({ onRecords, onShowResults }: { onRecords: () => vo
   useEffect(() => {
     void loadCatalog();
   }, []);
+
+  const addModel = async () => {
+    setAdding(true);
+    setAddNote(null);
+    try {
+      const entered = addPrices.price_in !== "" && addPrices.price_out !== "";
+      const prices = addSource === "openai" || (addSource === "openrouter" && entered)
+        ? { price_in: Number(addPrices.price_in) || undefined, price_out: Number(addPrices.price_out) || undefined } : undefined;
+      const { model: added, added: isNew } = await addCustomModel(addSource, addName.trim(), prices);
+      await loadCatalog();
+      setForm((current) => ({ ...current, model: added.key }));
+      setAddName("");
+      setAddNote(`${added.display_name} ${isNew ? "added" : "is already available"}.`
+        + (added.credential_available ? "" : ` Set ${added.credential_env} on the server to run it.`)
+        + (added.deployment === "Online API" ? "" : " The first run downloads it on the DGX."));
+    } catch (reason) {
+      setAddNote(reason instanceof Error ? reason.message : String(reason));
+    } finally {
+      setAdding(false);
+    }
+  };
 
   // Poll the job list; when a job newly succeeds, ask the parent to merge its records.
   useEffect(() => {
@@ -367,6 +398,36 @@ export function RunBenchmark({ onRecords, onShowResults }: { onRecords: () => vo
               <option value="default">Allow cache</option>
             </select>
           </label>
+        </div>
+        <div className="run-add">
+          <label>Bring your own model
+            <select value={addSource} onChange={(event) => { setAddSource(event.target.value as ModelSource); setAddNote(null); }}>
+              {MODEL_SOURCES.map((item) => <option key={item.key} value={item.key}>{item.label}</option>)}
+            </select>
+          </label>
+          <label>Model
+            <input value={addName} maxLength={160} placeholder={MODEL_SOURCES.find((item) => item.key === addSource)?.placeholder}
+              onChange={(event) => setAddName(event.target.value)}
+              onKeyDown={(event) => { if (event.key === "Enter" && addName.trim() && !adding) void addModel(); }} />
+          </label>
+          {(addSource === "openai" || addSource === "openrouter") && (
+            <>
+              <label>$ / M input{addSource === "openrouter" ? " (optional)" : ""}
+                <input type="number" min={0} step="0.01" value={addPrices.price_in}
+                  onChange={(event) => setAddPrices((current) => ({ ...current, price_in: event.target.value }))} />
+              </label>
+              <label>$ / M output{addSource === "openrouter" ? " (optional)" : ""}
+                <input type="number" min={0} step="0.01" value={addPrices.price_out}
+                  onChange={(event) => setAddPrices((current) => ({ ...current, price_out: event.target.value }))} />
+              </label>
+            </>
+          )}
+          <button className="secondary-action" disabled={adding || !addName.trim()} onClick={() => void addModel()}>
+            <Plus size={14} /> {adding ? "Checking…" : "Add model"}</button>
+          <small>{addNote ?? (MODEL_SOURCES.find((item) => item.key === addSource)?.local
+            ? "Open-weight model: downloaded by its first run on one A100, energy measured."
+            : `API model: runs through the logging proxy, capped at $${catalog.limits.max_run_cost_usd} per run; energy is not measured (inference runs at the provider). `
+              + (addSource === "openrouter" ? "Prices come from OpenRouter unless you enter them." : "Prices are needed for the spending cap."))}</small>
         </div>
         {system?.multi_model && (
           <div className="run-operators">

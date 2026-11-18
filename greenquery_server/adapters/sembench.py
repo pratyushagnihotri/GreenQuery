@@ -4,7 +4,8 @@ Each system runs from its own SemBench venv via evaluation/scripts/run_sembench_
 on the DGX (GREENQUERY_EXECUTOR=slurm). SemBench Movie Q1/Q2/Q4/Q5 are Stretto's Movie
 Q1/Q2/Q4/Q3, so records reuse Stretto's query names and the same dataset label.
 Quality comes from SemBench's own evaluator. Local (Ollama) models run through
-run_sembench_measured.sbatch with measured energy; API models through the smoke script (no energy).
+run_sembench_measured.sbatch with measured energy; API models (OpenAI, OpenRouter) through
+run_sembench_openai.sbatch: logging proxy with a spending cap, no model energy (it runs at the provider).
 """
 
 from __future__ import annotations
@@ -33,8 +34,8 @@ SCALE_FACTOR = 1000
 
 class SemBenchAdapter(SystemAdapter):
     workloads = ["movie"]
-    # API models run through run_sembench_smoke.sbatch; local (Ollama) models through
-    # run_sembench_measured.sbatch on one GPU with measured energy.
+    # API models run through run_sembench_openai.sbatch (proxy + spending cap); local (Ollama) models
+    # through run_sembench_measured.sbatch on one GPU with measured energy.
     providers = ["openai", "openai_compatible"]
     multi_model = False
 
@@ -48,7 +49,7 @@ class SemBenchAdapter(SystemAdapter):
     def slurm_job(self, spec: RunSpec, out_dir: Path) -> SlurmJob:
         queries = [SEMBENCH_MOVIE_QUERIES[spec.query]] if spec.query else list(SEMBENCH_MOVIE_QUERIES.values())
         model = get_model_spec(spec.model)
-        if model is not None and model.provider == "openai_compatible":
+        if model is not None and model.provider == "openai_compatible" and not model.remote:
             return SlurmJob(
                 script="evaluation/scripts/run_sembench_measured.sbatch",
                 env={
@@ -67,17 +68,27 @@ class SemBenchAdapter(SystemAdapter):
                 },
                 gres="gpu:1",
             )
-        return SlurmJob(
-            script="evaluation/scripts/run_sembench_smoke.sbatch",
-            env={
-                "SYSTEMS": self.sembench_name,
-                "QUERIES": " ".join(queries),
-                "MODEL": spec.model,
-                "REPETITIONS": str(spec.repetitions),
-                "SCALE_FACTOR": str(SCALE_FACTOR),
-                "SEMBENCH_ROOT": str(settings.SEMBENCH_ROOT),
-            },
-        )
+        # Online API model: engines request "gpt-4o-mini", the proxy forwards SERVED_MODEL to the provider
+        # with the server's key and stops at the run's spending cap.
+        served = model.api_model if model else spec.model
+        provider = "openrouter" if model and model.remote and "openrouter.ai" in (model.base_url or "") else "openai"
+        env = {
+            "SYSTEMS": self.sembench_name,
+            "QUERIES": " ".join(queries),
+            "SERVED_MODEL": served,
+            "PROVIDER": provider,
+            "PRICE_IN": str(model.price_in if model else 0.15),
+            "PRICE_OUT": str(model.price_out if model else 0.60),
+            "BUDGET_USD": str(settings.MAX_RUN_COST_USD),
+            "REPETITIONS": str(spec.repetitions),
+            "SCALE_FACTOR": str(SCALE_FACTOR),
+            "QUERY_TIMEOUT": str(settings.MEASURED_QUERY_TIMEOUT),
+            "GREENQUERY_ROOT": str(settings.REPO_ROOT),
+            "SEMBENCH_ROOT": str(settings.SEMBENCH_ROOT),
+        }
+        if provider == "openai" and served.startswith(("gpt-5", "o1", "o3", "o4")):
+            env["REASONING_EFFORT"] = "minimal"  # reasoning models: as in the GreenQuery evaluation
+        return SlurmJob(script="evaluation/scripts/run_sembench_openai.sbatch", env=env)
 
     def collect_slurm(self, spec: RunSpec, out_dir: Path) -> List[dict]:
         if (out_dir / "energy_records.json").exists():
@@ -130,8 +141,13 @@ class SemBenchAdapter(SystemAdapter):
             query = QUERY_NAME_BY_SEMBENCH_ID.get(energy["query"])
             metric_path = out_dir / "metrics" / f"rep_{energy['repetition']}" / f"{self.sembench_name}_{energy['query']}.json"
             metric = next(iter(json.loads(metric_path.read_text()).values()), {}) if metric_path.exists() else {}
-            records.append(measured_record(energy, metric, query, spec.model))
+            records.append(measured_record(energy, metric, query, spec.model, api=self._is_api(spec)))
         return records
+
+    @staticmethod
+    def _is_api(spec: RunSpec) -> bool:
+        model = get_model_spec(spec.model)
+        return model is None or model.provider != "openai_compatible" or model.remote
 
     # Local (non-cluster) execution is not supported for SemBench systems.
     def steps(self, spec: RunSpec, run_dir: Path, repetition: int) -> List[Step]:
@@ -153,9 +169,12 @@ def quality_score(metric: dict) -> Optional[float]:
     return None
 
 
-def measured_record(energy: dict, metric: dict, query: Optional[str], model: str) -> dict:
-    """Compact record with measured energy (GPU counter + CPU share) from join_energy.py output."""
-    gpu = energy.get("gpu_energy_j") or 0.0
+def measured_record(energy: dict, metric: dict, query: Optional[str], model: str, api: bool = False) -> dict:
+    """Compact record with measured energy (GPU counter + CPU share) from join_energy.py output.
+
+    API models (api=True): inference runs at the provider, so no energy is reported for the query
+    (energy_source not_available); the job's CPU share stays in `measurement` for reference."""
+    gpu = 0.0 if api else (energy.get("gpu_energy_j") or 0.0)
     cpu = energy.get("cpu_job_energy_j") or 0.0
     timed_out = energy.get("exit_code") == 124
     ok = metric.get("status") == "success" and not timed_out
@@ -168,14 +187,14 @@ def measured_record(energy: dict, metric: dict, query: Optional[str], model: str
         "planner_model": None,
         "runtime_seconds": energy.get("window_s"),
         "total_tokens": (energy.get("prompt_tokens") or 0) + (energy.get("completion_tokens") or 0),
-        "api_cost_usd": 0.0,
-        "energy_kwh": (gpu + cpu) / 3.6e6,
+        "api_cost_usd": energy.get("api_cost_usd") or 0.0,
+        "energy_kwh": 0.0 if api else (gpu + cpu) / 3.6e6,
         "co2_g": None,
-        "energy_source": "measured",
+        "energy_source": "not_available" if api else "measured",
         "physical_operators": [],
         "measurement": {
             "gpu_wh": gpu / 3600,
-            "gpu_dynamic_wh": (energy.get("gpu_dynamic_energy_j") or 0.0) / 3600,
+            "gpu_dynamic_wh": 0.0 if api else (energy.get("gpu_dynamic_energy_j") or 0.0) / 3600,
             "cpu_job_wh": cpu / 3600,
             "gpu_idle_w": energy.get("gpu_idle_w"),
             "llm_calls": energy.get("llm_calls"),

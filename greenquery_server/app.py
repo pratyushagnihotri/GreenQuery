@@ -74,7 +74,7 @@ def health():
 
 def local_model_installed(spec) -> bool:
     """Whether a local (OpenAI-compatible) model can actually be served here."""
-    if spec.provider != "openai_compatible":
+    if spec.provider != "openai_compatible" or spec.remote:
         return True
     if spec.key.startswith("ollama/"):
         if spec.key in load_custom_registry():
@@ -97,54 +97,151 @@ def public_model(spec) -> dict:
     return data
 
 
-# "Bring your own model": any model of the Ollama library that fits on one GPU.
+# "Bring your own model". Sources:
+#   ollama       any Ollama library model           -> runs on one GPU of the DGX, measured energy
+#   huggingface  any GGUF repository on Hugging Face -> pulled by Ollama (hf.co/...), measured energy
+#   openai       any OpenAI model id                 -> online API, through the logging proxy with a spending cap
+#   openrouter   any OpenRouter model id             -> online API (Claude, Gemini, Llama, ...), same proxy and cap
+# Online API models have no measured energy (inference runs at the provider).
 OLLAMA_TAG = re.compile(r"^[a-z0-9][a-z0-9._-]{0,63}(:[a-z0-9][a-z0-9._-]{0,63})?$")
+HF_REPO = re.compile(r"^(?:hf\.co/|huggingface\.co/|https://huggingface\.co/)?([A-Za-z0-9][A-Za-z0-9._-]{0,95}/[A-Za-z0-9][A-Za-z0-9._-]{0,95})(?::([A-Za-z0-9._-]{1,32}))?/?$")
+API_MODEL_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$")
+HF_DEFAULT_QUANT = "Q4_K_M"  # what Ollama pulls from a GGUF repository when no quantization is given
+
+
+def _get_json(url: str, headers: Optional[dict] = None) -> dict:
+    request = urllib.request.Request(url, headers={"User-Agent": "GreenQuery", **(headers or {})})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        return json.load(response)
 
 
 def ollama_model_size(name: str, tag: str) -> int:
     """Download size in bytes from the Ollama registry manifest (raises LookupError if unknown)."""
     url = f"https://registry.ollama.ai/v2/library/{name}/manifests/{tag}"
-    request = urllib.request.Request(url, headers={"Accept": "application/vnd.docker.distribution.manifest.v2+json"})
     try:
-        with urllib.request.urlopen(request, timeout=15) as response:
-            manifest = json.load(response)
+        manifest = _get_json(url, {"Accept": "application/vnd.docker.distribution.manifest.v2+json"})
     except urllib.error.HTTPError as error:
         raise LookupError(f"{name}:{tag} is not in the Ollama library") from error
     return sum(int(layer.get("size", 0)) for layer in manifest.get("layers", []))
 
 
+def huggingface_gguf(repo: str, quant: Optional[str]) -> tuple:
+    """(quantization, size in bytes) of a GGUF repository on Hugging Face (raises LookupError)."""
+    try:
+        info = _get_json(f"https://huggingface.co/api/models/{repo}?blobs=true")
+    except urllib.error.HTTPError as error:
+        raise LookupError(f"{repo} is not a public model on Hugging Face") from error
+    files = [(item["rfilename"], int(item.get("size") or 0)) for item in info.get("siblings", [])
+             if item.get("rfilename", "").lower().endswith(".gguf")]
+    if not files:
+        raise LookupError(f"{repo} has no GGUF files; pick a GGUF repository (e.g. bartowski/...-GGUF)")
+    wanted = quant or HF_DEFAULT_QUANT
+    matching = [(name, size) for name, size in files if wanted.lower() in name.lower()]
+    if not matching:
+        options = sorted({m.group(0).upper() for name, _ in files
+                          for m in [re.search(r"(I?Q\d[\w]*|F16|BF16|F32)", name.rsplit("/", 1)[-1], re.I)] if m})
+        raise LookupError(f"{repo} has no {wanted} file; add one of these after a colon: {', '.join(options) or 'none found'}")
+    return wanted, sum(size for _, size in matching)
+
+
 class CustomModel(BaseModel):
-    tag: str
+    source: Literal["ollama", "huggingface", "openai", "openrouter"] = "ollama"
+    model: str = Field("", max_length=160)
+    tag: str = Field("", max_length=160)  # older clients: Ollama tag
+    price_in: Optional[float] = Field(None, ge=0)   # USD per million tokens (OpenAI: required)
+    price_out: Optional[float] = Field(None, ge=0)
+
+
+def _custom_local(key: str, api_model: str, display: str, size: int) -> dict:
+    if size > settings.CUSTOM_MODEL_MAX_BYTES:
+        raise HTTPException(400, f"{api_model} is {size / 1e9:.0f} GB; at most "
+                                 f"{settings.CUSTOM_MODEL_MAX_BYTES / 1e9:.0f} GB fit on one GPU here")
+    return {"provider": "openai_compatible", "api_model": api_model, "display_name": display,
+            "base_url": "http://localhost:11434/v1", "base_url_env": "GREENQUERY_OLLAMA_BASE_URL",
+            "price_in": 0.0, "price_out": 0.0, "energy": "not_available", "size_bytes": size}
+
+
+def _custom_entry(body: CustomModel) -> tuple:
+    """(registry key, registry entry) for a model added from the dashboard."""
+    raw = (body.model or body.tag).strip()
+    if not raw:
+        raise HTTPException(400, "Enter a model name")
+    if body.source == "ollama":
+        tag = raw.lower()
+        if not OLLAMA_TAG.match(tag):
+            raise HTTPException(400, "Use an Ollama library name such as phi3:mini or mistral:7b")
+        name, _, version = tag.partition(":")
+        version = version or "latest"
+        key = f"ollama/{name}:{version}"
+        if get_model_spec(key) is not None:
+            return key, None
+        try:
+            size = ollama_model_size(name, version)
+        except LookupError as error:
+            raise HTTPException(404, str(error)) from error
+        return key, _custom_local(key, f"{name}:{version}", f"{name}:{version} (Ollama, added)", size)
+    if body.source == "huggingface":
+        match = HF_REPO.match(raw)
+        if not match:
+            raise HTTPException(400, "Use a Hugging Face repository such as bartowski/Phi-3.5-mini-instruct-GGUF "
+                                     "(optionally :Q4_K_M)")
+        repo, quant = match.group(1), match.group(2)
+        try:
+            quant, size = huggingface_gguf(repo, quant)
+        except LookupError as error:
+            raise HTTPException(404, str(error)) from error
+        api_model = f"hf.co/{repo}:{quant}"
+        key = f"ollama/{api_model}"
+        if get_model_spec(key) is not None:
+            return key, None
+        return key, _custom_local(key, api_model, f"{repo.split('/')[-1]} {quant} (Hugging Face, added)", size)
+    if not API_MODEL_ID.match(raw):
+        raise HTTPException(400, "Use the provider's model id, e.g. gpt-4.1-mini or anthropic/claude-haiku-5.5")
+    if body.source == "openai":
+        key = f"openai/{raw}"
+        if get_model_spec(key) is not None or get_model_spec(raw) is not None:
+            return (key if get_model_spec(key) else get_model_spec(raw).key), None
+        if not body.price_in or not body.price_out:
+            raise HTTPException(400, "Enter the model's input and output price (USD per million tokens); "
+                                     "the spending cap of every run depends on it")
+        if os.environ.get("OPENAI_API_KEY"):  # check the id exists before anyone starts a run with it
+            try:
+                _get_json(f"https://api.openai.com/v1/models/{raw}",
+                          {"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"})
+            except urllib.error.HTTPError as error:
+                raise HTTPException(404, f"OpenAI does not offer {raw!r} to this account") from error
+        return key, {"provider": "openai", "api_model": raw, "display_name": f"{raw} (OpenAI, added)",
+                     "api_key_env": "OPENAI_API_KEY", "price_in": body.price_in, "price_out": body.price_out,
+                     "energy": "not_available"}
+    # OpenRouter: model list and prices are public.
+    key = f"openrouter/{raw}"
+    if get_model_spec(key) is not None:
+        return key, None
+    listing = _get_json("https://openrouter.ai/api/v1/models")
+    found = next((item for item in listing.get("data", []) if item.get("id") == raw), None)
+    if found is None:
+        raise HTTPException(404, f"OpenRouter has no model {raw!r} (ids look like anthropic/claude-haiku-5.5)")
+    pricing = found.get("pricing") or {}
+    price_in = body.price_in if body.price_in is not None else float(pricing.get("prompt") or 0) * 1e6
+    price_out = body.price_out if body.price_out is not None else float(pricing.get("completion") or 0) * 1e6
+    return key, {"provider": "openai_compatible", "remote": True, "api_model": raw,
+                 "display_name": f"{found.get('name') or raw} (OpenRouter, added)",
+                 "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY",
+                 "price_in": round(price_in, 4), "price_out": round(price_out, 4), "energy": "not_available"}
 
 
 @app.post("/api/models/custom")
 def add_custom_model(body: CustomModel):
-    tag = body.tag.strip().lower()
-    if not OLLAMA_TAG.match(tag):
-        raise HTTPException(400, "Use an Ollama library name such as phi3:mini or mistral:7b")
-    name, _, version = tag.partition(":")
-    version = version or "latest"
-    key = f"ollama/{name}:{version}"
-    if get_model_spec(key) is not None:
-        return {"model": public_model(get_model_spec(key)), "added": False}
     try:
-        size = ollama_model_size(name, version)
-    except LookupError as error:
-        raise HTTPException(404, str(error)) from error
-    except OSError as error:
-        raise HTTPException(502, f"The Ollama library is not reachable: {error}") from error
-    if size > settings.CUSTOM_MODEL_MAX_BYTES:
-        raise HTTPException(400, f"{tag} is {size / 1e9:.0f} GB; at most "
-                                 f"{settings.CUSTOM_MODEL_MAX_BYTES / 1e9:.0f} GB fit on one GPU here")
+        key, entry = _custom_entry(body)
+    except OSError as error:  # registry or provider not reachable
+        raise HTTPException(502, f"Could not reach the model source: {error}") from error
+    if entry is None:
+        return {"model": public_model(get_model_spec(key)), "added": False}
     import yaml
 
     entries = load_custom_registry()
-    entries[key] = {
-        "provider": "openai_compatible", "api_model": f"{name}:{version}",
-        "display_name": f"{name}:{version} (Ollama, added)", "base_url": "http://localhost:11434/v1",
-        "base_url_env": "GREENQUERY_OLLAMA_BASE_URL", "price_in": 0.0, "price_out": 0.0,
-        "energy": "not_available", "size_bytes": size,
-    }
+    entries[key] = entry
     CUSTOM_REGISTRY_PATH.write_text(yaml.safe_dump({"models": entries}, sort_keys=True))
     reload_registry()
     return {"model": public_model(get_model_spec(key)), "added": True}

@@ -8,8 +8,8 @@ import { PlayQr } from "@/components/play-qr";
 import { RunInspector, type InspectSource } from "@/components/run-inspector";
 import { LiveHeartbeat, STAGES, stageOf, useRecordedBeat, type Beat } from "@/components/live-heartbeat";
 import {
-  addCustomModel, cancelRun, fetchBoard, fetchCatalog, fetchLive, postBoardEntry, resetBoard, startRun,
-  type BoardEntry, type LiveProgress, type LiveRecord,
+  addCustomModel, cancelRun, fetchBoard, fetchCatalog, fetchLive, MODEL_SOURCES, postBoardEntry, resetBoard, startRun,
+  type BoardEntry, type LiveProgress, type LiveRecord, type ModelSource,
 } from "@/lib/api";
 
 // GreenQuery Challenge (demo mode 1): answer a SemBench query correctly with the least measured energy and
@@ -160,9 +160,12 @@ export function Challenge({ onShowResults }: { onShowResults?: () => void }) {
   const [serverBoard, setServerBoard] = useState<BoardEntry[]>([]);
   const [lastEntry, setLastEntry] = useState<number | null>(null);
   const [inspecting, setInspecting] = useState(false);
-  // "Bring your own model": Ollama library models added from here (live only, no recorded runs yet).
+  // "Bring your own model": local models from the Ollama library or Hugging Face (GGUF), added from here
+  // (live only, no recorded runs yet). The Challenge ranks measured energy, so API models are added on
+  // the Run Benchmark page instead.
   const [customModels, setCustomModels] = useState<{ key: string; label: string }[]>([]);
   const [newModel, setNewModel] = useState("");
+  const [newSource, setNewSource] = useState<ModelSource>("ollama");
   const [adding, setAdding] = useState(false);
   const models = useMemo(() => [...MODELS, ...customModels.filter((c) => !MODELS.some((m) => m.key === c.key))],
     [customModels]);
@@ -211,7 +214,7 @@ export function Challenge({ onShowResults }: { onShowResults?: () => void }) {
     setAdding(true);
     setError("");
     try {
-      const { model: added } = await addCustomModel(newModel.trim());
+      const { model: added } = await addCustomModel(newSource, newModel.trim());
       setCustomModels((items) => items.some((item) => item.key === added.api_model) ? items
         : [...items, { key: added.api_model, label: `${added.api_model} (added)` }]);
       setModel(added.api_model);
@@ -415,7 +418,12 @@ export function Challenge({ onShowResults }: { onShowResults?: () => void }) {
         {online && (
           <div className="ch-add">
             <label>Bring your own model
-              <input value={newModel} maxLength={64} placeholder="any Ollama model, e.g. phi3:mini or mistral:7b"
+              <select value={newSource} disabled={lock || adding} onChange={(event) => setNewSource(event.target.value as ModelSource)}>
+                {MODEL_SOURCES.filter((item) => item.local).map((item) => <option key={item.key} value={item.key}>{item.label}</option>)}
+              </select>
+            </label>
+            <label>Model
+              <input value={newModel} maxLength={160} placeholder={MODEL_SOURCES.find((item) => item.key === newSource)?.placeholder}
                 disabled={lock || adding} onChange={(event) => setNewModel(event.target.value)}
                 onKeyDown={(event) => { if (event.key === "Enter" && newModel.trim()) void addModel(); }} />
             </label>

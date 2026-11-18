@@ -28,9 +28,10 @@ def embedding_choice(model: str | None = None) -> str:
     """
     choice = os.environ.get("GREENQUERY_EMBEDDING_MODEL", "auto")
     if choice == "auto":
-        from reasondb.reasoning.providers import provider_for
+        from reasondb.reasoning.providers import get_model_spec
 
-        if model is not None and provider_for(model) == "openai_compatible":
+        spec = get_model_spec(model) if model is not None else None
+        if spec is not None and spec.provider == "openai_compatible" and not spec.remote:
             return "local"
         choice = "openai" if os.environ.get("OPENAI_API_KEY") else "local"
     return choice
@@ -67,7 +68,7 @@ def gpus_needed(models: List[str]) -> int:
 
     counts = [
         spec.gpus for spec in (get_model_spec(model) for model in models)
-        if spec is not None and spec.provider == "openai_compatible"
+        if spec is not None and spec.provider == "openai_compatible" and not spec.remote
     ]
     return max(counts) if counts else 0
 

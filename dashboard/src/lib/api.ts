@@ -103,9 +103,22 @@ export const estimateRun = (run: RunRequest) =>
   request<{ estimate: CostEstimate }>("/api/runs", { method: "POST", body: JSON.stringify({ ...run, dry_run: true }) }).then((body) => body.estimate);
 export const startRun = (run: RunRequest) =>
   request<{ job: Job; estimate: CostEstimate }>("/api/runs", { method: "POST", body: JSON.stringify(run) });
-/** Add an Ollama library model (e.g. "phi3:mini"); the next run downloads it on the DGX. */
-export const addCustomModel = (tag: string) =>
-  request<{ model: ModelInfo; added: boolean }>("/api/models/custom", { method: "POST", body: JSON.stringify({ tag }) });
+/** Where a model added from the dashboard comes from ("bring your own model"). */
+export type ModelSource = "ollama" | "huggingface" | "openai" | "openrouter";
+export const MODEL_SOURCES: { key: ModelSource; label: string; placeholder: string; local: boolean }[] = [
+  { key: "ollama", label: "Ollama library", placeholder: "e.g. phi3:mini or mistral:7b", local: true },
+  { key: "huggingface", label: "Hugging Face (GGUF)", placeholder: "e.g. bartowski/Phi-3.5-mini-instruct-GGUF:Q4_K_M", local: true },
+  { key: "openai", label: "OpenAI API", placeholder: "e.g. gpt-4.1-mini", local: false },
+  { key: "openrouter", label: "OpenRouter API", placeholder: "e.g. anthropic/claude-haiku-5.5", local: false },
+];
+/**
+ * Add a model. Local models (Ollama library, Hugging Face GGUF) are downloaded by the next run on the DGX
+ * and get measured energy; API models (OpenAI, OpenRouter) run through the logging proxy with a spending
+ * cap and have no measured energy. OpenAI models need their prices (USD per million tokens).
+ */
+export const addCustomModel = (source: ModelSource, model: string, prices?: { price_in?: number; price_out?: number }) =>
+  request<{ model: ModelInfo; added: boolean }>("/api/models/custom",
+    { method: "POST", body: JSON.stringify({ source, model, ...prices }) });
 export const cancelRun = (jobId: string) => request<{ job: Job }>(`/api/runs/${jobId}/cancel`, { method: "POST" });
 
 /** Stream a job's log and status; returns a function that closes the stream. */
