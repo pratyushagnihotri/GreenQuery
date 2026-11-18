@@ -19,12 +19,7 @@ is always labelled as such and never mixed with measured energy.
 Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload but it is not limited these optimizers/models/workloads. The workload is a parameter, not
 built in: adding another workload means supplying its data, ground truth and evaluator, plus one query program per engine.
 
-**Supported today:** the engines Stretto, Abacus (re-implementation in Stretto), LOTUS, Palimpzest, ThalamusDB and CAESURA, local LLMs through
-Ollama, API models through OpenAI and OpenRouter, and the SemBench Movie workload. The workload is a parameter, not
-built in: adding another workload means supplying its data, ground truth and evaluator, plus one query program
-per engine.
-
-**LLMs evaluated so far (16):** 10 local models with measured energy and 6 API models with estimated energy.
+**Evaluated LLMs:** 10 local models with measured energy and 6 API models with estimated energy.
 
 | Family | Model | Identifier | Served by | Energy |
 |---|---|---|---|---|
